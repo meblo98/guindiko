@@ -14,11 +14,11 @@ import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.c
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
-  { path: 'dashbord', component: TableauBordComponent},
+  { path: 'dashboard', component: TableauBordComponent},
   { path: 'role', component: RoleComponent},
   { path: 'permission', component: PermissionComponent},
   { path: 'user', component: GestionUserComponent},
