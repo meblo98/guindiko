@@ -1,1 +1,32 @@
 <p>gestion-user works!</p>
+<p>Gestion des Utilisateurs</p>
+<div>
+    <h2>Gestion des Utilisateurs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Rôle</th>
+          <th>Téléphone</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.nom }}</td>
+          <td>{{ user.prenom }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.numeroTelephone }}</td>
+          <td>{{ user.is_active }}</td>
+          <td>
+            <button (click)="deleteUser(user.id)">Supprimer</button>
+            <a [routerLink]="['/user-form', user.id]">Modifier</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

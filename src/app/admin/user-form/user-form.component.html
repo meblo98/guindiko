@@ -1,0 +1,26 @@
+<p>user-form works!</p>
+<h2>Modifier l'utilisateur</h2>
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <label for="nom">Nom:</label>
+  <input type="text" id="nom" name="nom" [(ngModel)]="user.nom" required>
+
+  <label for="prenom">Prénom:</label>
+  <input type="text" id="prenom" name="prenom" [(ngModel)]="user.prenom" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+
+  <label for="role">Rôle:</label>
+  <select id="role" name="role" [(ngModel)]="user.role" required>
+    <option value="mentor">Mentor</option>
+    <option value="menti">Menti</option>
+  </select>
+
+  <label for="telephone">Téléphone:</label>
+  <input type="text" id="telephone" name="telephone" [(ngModel)]="user.numeroTelephone" required>
+
+  <label for="statut">Statut:</label>
+  <input type="text" id="statut" name="statut" [(ngModel)]="user.statut" required>
+
+  <button type="submit" [disabled]="!userForm.form.valid">Enregistrer</button>
+</form>

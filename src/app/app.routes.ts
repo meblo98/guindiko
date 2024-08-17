@@ -1,3 +1,4 @@
+import { UserFormComponent } from './admin/user-form/user-form.component';
 import { Routes } from '@angular/router';
 import { InscriptionMenteComponent } from './auth/inscription-mente/inscription-mente.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -28,6 +29,8 @@ export const routes: Routes = [
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
-  { path: 'ajout-rdv', component: FormRDVComponent}
+  { path: 'ajout-rdv', component: FormRDVComponent},
+  { path: 'user-form/:id', component: UserFormComponent }
+
 
 ];
