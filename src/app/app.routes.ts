@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
   { path: 'dashbord', component: TableauBordComponent},
   { path: 'roles', component: RoleComponent},
-  { path: 'permission', component: PermissionsComponent},
+  { path: 'permissions', component: PermissionsComponent},
   { path: 'user', component: GestionUserComponent},
   { path: 'forum', component: ForumComponent},
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
