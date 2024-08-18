@@ -1,0 +1,555 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+
+    margin-left: 20px;     /* Marge à gauche pour chaque section */
+    margin-right: 20px; /* Marge à droite pour chaque section */
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #000 ; /* Couleur principale */
+}
+
+p {
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/* Header */
+header {
+    background-color: #36494E;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+/* Logo à gauche */
+.logo {
+    width: 150px;
+}
+
+/* Conteneur pour les liens et les icônes */
+.menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Prend tout l'espace restant entre le logo et les icônes */
+    justify-content: space-between;
+}
+
+.menu nav {
+    flex-grow: 1; /* Prend tout l'espace possible pour centrer les liens */
+    display: flex;
+    justify-content: center; /* Centre les liens horizontalement */
+}
+
+.menu nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu nav ul li {
+    margin-right: 20px;
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu .icons {
+    display: flex;
+    align-items: center; /* Aligne les icônes sur la même ligne */
+}
+
+.menu .icons img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #F4F4F4;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #4F772D;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px;
+    cursor: pointer;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+
+.about p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.about .btn {
+    background-color: #4F772D;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px;
+    cursor: pointer;
+}
+
+.about-image {
+    flex: 1;
+    text-align: right;
+}
+
+
+
+
+/* Arc en Ciel */
+.arc-en-ciel {
+    padding: 50px 20px;
+    background-color: #F4F4F4;
+}
+
+.arc-en-ciel h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.arc-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.arc {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 200px; /* Flex-grow and basis to handle responsive design */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.arc-icon {
+    font-size: 40px;
+    color: #36494E;
+    margin-bottom: 10px;
+}
+
+.arc p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.btn-savoir-plus {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4F772D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btn-savoir-plus:hover {
+    background-color: #2b345b;
+}
+
+
+
+
+
+/* Section Témoignages */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.testimonial-container {
+    position: relative;
+}
+
+.testimonial-card {
+    display: none; /* Masquer par défaut */
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px; /* Largeur maximale de la carte */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card.active {
+    display: block; /* Afficher seulement la carte active */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card p {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.testimonial-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #36494E;
+}
+
+.testimonial-card span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #36494E;
+    margin-top: 10px;
+}
+
+.testimonial-next {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4F772D;
+    color: #fff;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.testimonial-next:hover {
+    background-color: #2b345b;
+}
+
+
+
+
+
+
+/* Partners and Statistics */
+.partners, .statistics {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.partners img, .statistics .stat-card {
+    width: 100px;
+    margin: 0 10px;
+}
+
+.statistics h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    display: inline-block;
+    background-color: #36494E;
+    color: #fff;
+    padding: 20px;
+    margin: 0 10px;
+}
+
+
+
+
+/* Styles pour la section des statistiques */
+.statistics {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #F4F4F4;
+}
+
+.statistics h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #36494E;
+}
+
+.statistics p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: #4F772D;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 29px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Ligne pointillée entre les cercles */
+.dotted-line {
+    width: 100px;
+    border-top: 5px dotted #333;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.stat-item:nth-child(2) .dotted-line,
+.stat-item:nth-child(4) .dotted-line {
+    display: none; /* Cache la ligne pour les éléments 2 et 4 (pour le premier et dernier cercle) */
+}
+
+.stat-item:nth-child(1) .dotted-line {
+    left: 100px; /* Aligne la ligne pointillée après le premier cercle */
+}
+
+.stat-item:nth-child(3) .dotted-line {
+    right: 100px; /* Aligne la ligne pointillée avant le dernier cercle */
+}
+
+
+
+
+
+
+/* Contact Section Styles */
+.contact-section {
+    opacity: 73%;
+    background-color: #f4f4f4; /* Couleur de fond légère en contraste */
+    background-image: url('image/image\ \(88\).png'); /* Chemin vers l'image de fond */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image dans la section */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    padding: 40px 20px;
+    text-align: center;
+    color: white; /* Assure que le texte est lisible sur l'image de fond */
+}
+
+.contact-section h3,
+.contact-section p,
+.contact-section form label {
+    color: white; /* Couleur du texte pour qu'il soit lisible sur l'image */
+}
+
+.contact-section input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-section button {
+    padding: 10px;
+    background-color: #4F772D;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #36494E;
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: flex-end; /* Aligns the links to the right */
+    flex: 1;
+}
+
+.footer-nav a {
+    color: white;
+    margin-left: 15px; /* Horizontal spacing between links */
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end; /* Aligns the icons to the right */
+}
+
+.social-icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer-separator {
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: left;
+}
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero, .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image, .about-image {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .services .service-cards {
+        flex-direction: column;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    header .menu nav ul {
+        flex-direction: column;
+    }
+
+    header .menu nav ul li {
+        margin: 10px 0;
+    }
+}
