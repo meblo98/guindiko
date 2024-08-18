@@ -1,0 +1,22 @@
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <label for="nom">Nom:</label>
+  <input type="text" id="nom" name="nom" [(ngModel)]="user.nom" required>
+
+  <label for="prenom">Prénom:</label>
+  <input type="text" id="prenom" name="prenom" [(ngModel)]="user.prenom" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+
+  <label for="numeroTelephone">Téléphone:</label>
+  <input type="text" id="numeroTelephone" name="numeroTelephone" [(ngModel)]="user.numeroTelephone" required>
+
+  <label for="is_active">Actif:</label>
+  <input type="checkbox" id="is_active" name="is_active" [(ngModel)]="user.is_active">
+
+  <!-- Ajouter des champs pour les rôles si nécessaire -->
+  <button type="submit" [disabled]="!userForm.form.valid">Enregistrer</button>
+</form>
