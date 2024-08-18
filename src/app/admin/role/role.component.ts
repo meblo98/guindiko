@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { RoleService } from '../../services/role.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-role',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './role.component.html',
-  styleUrl: './role.component.css'
+  styleUrls: ['./role.component.css']
 })
 export class RoleComponent implements OnInit {
   roles: any[] = [];
@@ -31,14 +32,36 @@ export class RoleComponent implements OnInit {
     if (this.editing) {
       // Mettre à jour le rôle existant
       this.roleService.createOrUpdateRole(this.role).subscribe(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Succès',
+          text: 'Rôle mis à jour avec succès !',
+        });
         this.loadRoles();  // Recharger la liste des rôles
         this.resetForm();
+      }, () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: 'Une erreur est survenue lors de la mise à jour du rôle.',
+        });
       });
     } else {
       // Créer un nouveau rôle
       this.roleService.createOrUpdateRole(this.role).subscribe(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Succès',
+          text: 'Rôle créé avec succès !',
+        });
         this.loadRoles();  // Recharger la liste des rôles
         this.resetForm();
+      }, () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: 'Une erreur est survenue lors de la création du rôle.',
+        });
       });
     }
   }
@@ -49,8 +72,32 @@ export class RoleComponent implements OnInit {
   }
 
   deleteRole(id: number): void {
-    this.roleService.deleteRole(id).subscribe(() => {
-      this.loadRoles();  // Recharger la liste des rôles après suppression
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Cette action est irréversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.roleService.deleteRole(id).subscribe(() => {
+          Swal.fire(
+            'Supprimé !',
+            'Le rôle a été supprimé.',
+            'success'
+          );
+          this.loadRoles();  // Recharger la liste des rôles après suppression
+        }, () => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Une erreur est survenue lors de la suppression du rôle.',
+          });
+        });
+      }
     });
   }
 
