@@ -17,12 +17,11 @@ import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
   { path: 'dashboard', component: TableauBordComponent},
-  { path: 'dashbord', component: TableauBordComponent},
   { path: 'roles', component: RoleComponent},
   { path: 'permissions', component: PermissionsComponent},
   { path: 'user', component: GestionUserComponent},
