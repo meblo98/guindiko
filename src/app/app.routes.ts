@@ -12,6 +12,7 @@ import { ListeRDVComponent } from './mente/liste-rdv/liste-rdv.component';
 import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.component';
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
+import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'role', component: RoleComponent},
   { path: 'permission', component: PermissionComponent},
   { path: 'user', component: GestionUserComponent},
+  { path: 'detail-user', component: DetailUserComponent},
   { path: 'forum', component: ForumComponent},
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
