@@ -1,1 +1,18 @@
 <p>role works!</p>
+<h2>Gestion des Rôles</h2>
+<ul>
+  <li *ngFor="let role of roles">
+    {{ role.name }}
+    <button (click)="editRole(role)">Modifier</button>
+    <button (click)="deleteRole(role.id)">Supprimer</button>
+  </li>
+</ul>
+
+<form (ngSubmit)="onSubmit()" #roleForm="ngForm">
+  <label for="name">Nom du Rôle:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="role.name" required>
+
+  <button type="submit" [disabled]="!roleForm.form.valid">
+    {{ editing ? 'Mettre à jour' : 'Enregistrer' }}
+  </button>
+</form>

@@ -37,4 +37,13 @@ export class GestionUserComponent {
     }
   }
 
+  toggleStatus(user: any): void {
+    const updatedStatus = !user.is_active;
+    this.userService.updateUserStatus(user.id, updatedStatus).subscribe(() => {
+      user.is_active = updatedStatus;
+    }, error => {
+      console.error('Erreur lors de la mise à jour du statut de l\'utilisateur :', error);
+    });
+  }
+
 }

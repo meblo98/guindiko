@@ -29,4 +29,8 @@ export class UserService {
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  updateUserStatus(id: number, isActive: boolean): Observable<void> {
+    return this.http.patch<void>(`${this.apiUrl}/${id}`, { is_active: isActive });
+  }
 }
