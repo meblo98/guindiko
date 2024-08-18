@@ -5,6 +5,8 @@ import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion-user',
@@ -16,12 +18,14 @@ import { CommonModule } from '@angular/common';
 export class GestionUserComponent {
   users: any[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadUsers();
   }
-
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
+  }
   loadUsers(): void {
     this.userService.getUsers().subscribe(data => {
       this.users = data;
@@ -29,14 +33,38 @@ export class GestionUserComponent {
   }
 
   deleteUser(id: number): void {
-    if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-      this.userService.deleteUser(id).subscribe(() => {
-        // Recharger la liste des utilisateurs après la suppression
-        this.loadUsers();
-      }, error => {
-        console.error('Erreur lors de la suppression de l\'utilisateur :', error);
-      });
-    }
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Cette action est irréversible !',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(id).subscribe(
+          () => {
+            Swal.fire(
+              'Supprimé !',
+              'L\'utilisateur a été supprimé.',
+              'success'
+            );
+            // Recharger la liste des utilisateurs après la suppression
+            this.loadUsers();
+          },
+          error => {
+            console.error('Erreur lors de la suppression de l\'utilisateur :', error);
+            Swal.fire(
+              'Erreur !',
+              'Une erreur est survenue lors de la suppression.',
+              'error'
+            );
+          }
+        );
+      }
+    });
   }
 
   toggleStatus(user: any): void {

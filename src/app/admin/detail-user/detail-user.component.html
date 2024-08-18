@@ -21,7 +21,7 @@
               <div class="col d-flex">
                 <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                <div class="col mx-2">
-                <h5 class="card-title">Bassine Niang</h5>
+                <h5 class="card-title">{{ user.nom }} {{ user.prenom }}</h5>
                 <p class="card-text">developpeur web</p>
                </div>
               </div>
@@ -32,12 +32,12 @@
             <div style="width: 1062px; height: 80px; background: #FAFBFC; border-radius: 12px; border: 1px #F8FAFC solid">
               <div style="width: 998px; height: 48px; justify-content: space-between; align-items: center; display: inline-flex">
                 <div style="width: 238px; position: relative">
-                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Bassinemail.com</div>
+                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">{{ user.email }}</div>
                   <div style="width: 138.01px; left: 50.70px; top: -0px; position: absolute; text-align: center; color: #94A3B8; font-size: 14px; font-family: Inter; font-weight: 500; line-height: 22.40px; letter-spacing: 0.20px; word-wrap: break-word">Email</div>
                 </div>
                 <div style="width: 2px; height: 42px; background: #E2E8F0; border-radius: 5px"></div>
                 <div style="width: 238px; position: relative">
-                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">77 123 45 67</div>
+                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">{{ user.numeroTelephone }}</div>
                   <div style="width: 191.15px; left: 24.36px; top: 0px; position: absolute; text-align: center; color: #94A3B8; font-size: 14px; font-family: Inter; font-weight: 500; line-height: 22.40px; letter-spacing: 0.20px; word-wrap: break-word">Téléphone</div>
                 </div>
                 <div style="width: 2px; height: 42px; background: #E2E8F0; border-radius: 5px"></div>
@@ -47,7 +47,7 @@
                 </div>
                 <div style="width: 2px; height: 42px; background: #E2E8F0; border-radius: 5px"></div>
                 <div style="width: 238px; position: relative">
-                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Developpement web</div>
+                  <div style="width: 238px; left: 0px; top: 24px; position: absolute; text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">{{user.domaineExpertise}}</div>
                   <div style="width: 169.30px; left: 34.35px; top: 0px; position: absolute; text-align: center; color: #94A3B8; font-size: 14px; font-family: Inter; font-weight: 500; line-height: 22.40px; letter-spacing: 0.20px; word-wrap: break-word">Domaine expertise</div>
                 </div>
               </div>
@@ -87,7 +87,7 @@
       </div>
       <div style="height: 204px; left: 32px; top: 32px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
         <div style="text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Expérience</div>
-        <div style="width: 772px; color: #94A3B8; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 25.60px; word-wrap: break-word">I am an experienced joiner with well developed skills and experience in groundwork, concrete finishing and steel fixing and have worked in the construction industry since 1982. <br/><br/>I am also a skilled labourer who has supported many different trades over the years. I have a full clean UK driving licence with entitlement of up to 7.5 tonne. I am keen to return to work after a period of training and personal development which has broadened my skills and experiences.</div>
+        <div style="width: 772px; color: #94A3B8; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 25.60px; word-wrap: break-word">{{experience}}</div>
       </div>
       <div style="height: 88px; left: 32px; top: 412px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex">
         <div style="text-align: center; color: #0F172A; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Career Preference</div>

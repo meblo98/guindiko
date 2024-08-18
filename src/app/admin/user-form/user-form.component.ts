@@ -1,8 +1,10 @@
+// user-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-form',
@@ -53,12 +55,24 @@ export class UserFormComponent implements OnInit {
       this.userService.updateUser(this.user.id, this.user).subscribe(
         () => {
           this.isLoading = false;
-          this.router.navigate(['/user']);
+          Swal.fire({
+            title: 'Success!',
+            text: 'User updated successfully.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            this.router.navigate(['/user']);
+          });
         },
         (error) => {
           console.error('Error updating user:', error);
           this.isLoading = false;
-          this.error = 'Failed to update user';
+          Swal.fire({
+            title: 'Error!',
+            text: 'Failed to update user.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
         }
       );
     }

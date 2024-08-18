@@ -1,22 +1,34 @@
-<div *ngIf="isLoading">Loading...</div>
+<!-- user-form.component.html -->
+<div *ngIf="isLoading" class="loading">Chargement...</div>
 <div *ngIf="error" class="error">{{ error }}</div>
 
-<form (ngSubmit)="onSubmit()" #userForm="ngForm">
-  <label for="nom">Nom:</label>
-  <input type="text" id="nom" name="nom" [(ngModel)]="user.nom" required>
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" class="user-form">
+  <h1>Formulaire d'Utilisateur</h1>
 
-  <label for="prenom">Prénom:</label>
-  <input type="text" id="prenom" name="prenom" [(ngModel)]="user.prenom" required>
+  <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" [(ngModel)]="user.nom" required class="form-control">
+  </div>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input type="text" id="prenom" name="prenom" [(ngModel)]="user.prenom" required class="form-control">
+  </div>
 
-  <label for="numeroTelephone">Téléphone:</label>
-  <input type="text" id="numeroTelephone" name="numeroTelephone" [(ngModel)]="user.numeroTelephone" required>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email" required class="form-control">
+  </div>
 
-  <label for="is_active">Actif:</label>
-  <input type="checkbox" id="is_active" name="is_active" [(ngModel)]="user.is_active">
+  <div class="form-group">
+    <label for="numeroTelephone">Téléphone:</label>
+    <input type="text" id="numeroTelephone" name="numeroTelephone" [(ngModel)]="user.numeroTelephone" required class="form-control">
+  </div>
 
-  <!-- Ajouter des champs pour les rôles si nécessaire -->
-  <button type="submit" [disabled]="!userForm.form.valid">Enregistrer</button>
+  <div class="form-group">
+    <label for="is_active">Actif:</label>
+    <input type="checkbox" id="is_active" name="is_active" [(ngModel)]="user.is_active" class="form-check">
+  </div>
+
+  <button type="submit" [disabled]="!userForm.form.valid" class="submit-button">Enregistrer</button>
 </form>
