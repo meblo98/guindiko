@@ -1,0 +1,28 @@
+<!-- src/app/admin/assign-permission/assign-permission.component.html -->
+<h2>Assign Permissions to Role</h2>
+
+<!-- Role Selection -->
+<label for="role">Select Role:</label>
+<select id="role" [(ngModel)]="selectedRole">
+  <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+</select>
+
+<!-- Permission Selection -->
+<label for="permission">Select Permission:</label>
+<select id="permission" [(ngModel)]="selectedPermission">
+  <option *ngFor="let permission of permissions" [value]="permission.id">{{ permission.name }}</option>
+</select>
+
+<!-- Assign Permission to Role -->
+<button (click)="assignPermissionToRole()">Assign Permission to Role</button>
+
+<h2>Assign Roles to User</h2>
+
+<!-- User Selection -->
+<label for="user">Select User:</label>
+<select id="user" [(ngModel)]="selectedUser">
+  <option *ngFor="let user of users" [value]="user.id">{{ user.nom }} {{ user.prenom }}</option>
+</select>
+
+<!-- Assign Role to User -->
+<button (click)="assignRoleToUser()">Assign Role to User</button>

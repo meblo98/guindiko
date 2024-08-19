@@ -1,10 +1,11 @@
+import { UserFormComponent } from './admin/user-form/user-form.component';
 import { Routes } from '@angular/router';
 import { InscriptionMenteComponent } from './auth/inscription-mente/inscription-mente.component';
 import { LoginComponent } from './auth/login/login.component';
 import { InscriptionMentorComponent } from './auth/inscription-mentor/inscription-mentor.component';
 import { TableauBordComponent } from './admin/tableau-bord/tableau-bord.component';
 import { RoleComponent } from './admin/role/role.component';
-import { PermissionComponent } from './admin/permission/permission.component';
+import { PermissionsComponent } from './admin/permission/permission.component';
 import { GestionUserComponent } from './admin/gestion-user/gestion-user.component';
 import { ForumComponent } from './admin/forum/forum.component';
 import { ListeMesDemandesComponent } from './mente/liste-mes-demandes/liste-mes-demandes.component';
@@ -13,16 +14,19 @@ import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.c
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
 import { AccueilComponent } from './mente/accueil/accueil.component';
+import { DetailUserComponent } from './admin/detail-user/detail-user.component';
+import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
   { path: 'dashboard', component: TableauBordComponent},
-  { path: 'role', component: RoleComponent},
-  { path: 'permission', component: PermissionComponent},
+  { path: 'roles', component: RoleComponent},
+  { path: 'permissions', component: PermissionsComponent},
   { path: 'user', component: GestionUserComponent},
+  { path: 'detail-user/:id', component: DetailUserComponent},
   { path: 'forum', component: ForumComponent},
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
@@ -30,6 +34,9 @@ export const routes: Routes = [
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
   { path: 'ajout-rdv', component: FormRDVComponent},
-  { path: 'accueil-mentee', component: AccueilComponent}
+  { path: 'accueil-mentee', component: AccueilComponent},
+  { path: 'user-form/:id', component: UserFormComponent },
+  { path: 'assign-permission', component: AssignPermissionComponent }
+
 
 ];

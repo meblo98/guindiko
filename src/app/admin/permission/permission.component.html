@@ -1,1 +1,25 @@
 <p>permission works!</p>
+<!-- src/app/components/manage-permissions/manage-permissions.component.html -->
+<h2>Manage Permissions</h2>
+
+<!-- Create Permission -->
+<h3>Create Permission</h3>
+<input [(ngModel)]="newPermission.name" placeholder="Permission Name">
+<button (click)="createPermission()">Create Permission</button>
+
+<!-- Permissions List -->
+<h3>Permissions List</h3>
+<ul>
+  <li *ngFor="let permission of permissions">
+    {{ permission.name }}
+    <button (click)="viewPermission(permission.id)">View</button>
+    <button (click)="deletePermission(permission.id)">Delete</button>
+  </li>
+</ul>
+
+<!-- Update Permission -->
+<div *ngIf="selectedPermission">
+  <h3>Update Permission</h3>
+  <input [(ngModel)]="selectedPermission.name" placeholder="Permission Name">
+  <button (click)="updatePermission(selectedPermission.id)">Update Permission</button>
+</div>
