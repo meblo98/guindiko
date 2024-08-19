@@ -12,6 +12,7 @@ import { ListeRDVComponent } from './mente/liste-rdv/liste-rdv.component';
 import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.component';
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
+import { AccueilComponent } from './mente/accueil/accueil.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
-  { path: 'ajout-rdv', component: FormRDVComponent}
+  { path: 'ajout-rdv', component: FormRDVComponent},
+  { path: 'accueil-mentee', component: AccueilComponent}
 
 ];

@@ -1,0 +1,171 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.navbar {
+  background-color: #31287C;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #F6A500;
+}
+h1{
+  font-size: 80px;
+  font-weight: bold;
+}
+
+
+.hero-section {
+background-image: url('PlaceholderImage.png');
+background-size: cover;
+position: relative;
+height: 600px;
+}
+
+.hero-section .overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5); /* Couche noire avec 50% d'opacité */
+z-index: 1;
+}
+
+.hero-section .container {
+position: relative;
+z-index: 2;
+justify-content:center;
+}
+
+
+.forum {
+  font-size: 80px;
+  font-weight: bold;
+  color: #F6A500;
+}
+
+.channels-section {
+padding: 40px;
+text-align: center;
+}
+
+.channels-container {
+display: flex;
+flex-wrap: wrap;
+justify-content:space-around;
+gap: 20px;
+margin:40px;
+}
+
+.channel-card {
+display: flex;
+flex-direction: row;
+align-items: center;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+width: 100%;
+max-width: 600px;
+}
+
+.channel-image-container {
+position: relative;
+width: 60%;
+}
+
+.channel-image-container img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 8px 0 0 8px;
+}
+
+.channel-badge {
+position: absolute;
+top: 0;
+left: 0;
+background-color: #f6a500;
+color: #31287c;
+padding: 5px 10px;
+border-radius: 50px 0 50px 0;
+font-weight: bold;
+font-size: 14px;
+width: 70%;
+text-align: center;
+}
+
+.post-badge {
+position: absolute;
+bottom: 10px;
+left: 10px;
+background-color: #31287C !important;
+color: white;
+padding: 5px 10px;
+border-radius: 30px;
+font-weight: bold;
+font-size: 12px;
+}
+
+.view-icon {
+position: absolute;
+bottom: 10px;
+right: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 5px;
+border-radius: 50%;
+color: white;
+font-size: 16px;
+}
+
+.channel-content {
+padding: 20px;
+width: 60%;
+text-align: left;
+font-size: 18px;
+color: #333;
+}
+
+
+
+
+/* Footer styles */
+footer.bg-primary {
+  background-color: #31287C !important;
+}
+
+footer .text-warning {
+  color: #F6A500 !important;
+}
+
+footer .social-icons i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer .social-icons a {
+  text-decoration: none;
+}
+
+footer .nav-link {
+  padding: 0 15px;
+  color: white;
+}
+
+footer .nav-link:hover {
+  color: #F6A500;
+}
+
+footer hr {
+  margin: 1rem 0;
+  border-top: 1px solid #F6A500;
+}
+
+

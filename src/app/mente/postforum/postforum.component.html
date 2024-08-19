@@ -1,0 +1,109 @@
+
+  <title>Guindiko - Discussions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Guindiko</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">À propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mentors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Domaines</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Modifier profil</a></li>
+              <li><a class="dropdown-item" href="#">Déconnexion</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Forum Header -->
+  <div class="forum-header">
+    <h1>Discussions - Informatique</h1>
+    <p>Explorez les dernières discussions et sujets d'actualité liés à l'informatique.</p>
+  </div>
+
+  <!-- Discussions Container -->
+  <div class="container discussions-container">
+    <!-- Discussion 1 -->
+    <div class="discussion-card">
+      <img src="/assets/AI.jpg" alt="Intelligence Artificielle" class="discussion-image">
+      <div class="discussion-title">Quel est l'avenir de l'intelligence artificielle ?</div>
+      <div class="discussion-meta">Posté par John Doe | 15 Août 2024</div>
+      <div class="discussion-body">L'intelligence artificielle évolue rapidement, mais qu'en est-il de son impact sur le futur du travail ?</div>
+      <button class="view-comments-btn" data-bs-toggle="collapse" data-bs-target="#comments1">Voir les commentaires (3)</button>
+      <div id="comments1" class="comments-container collapse">
+        <div class="comment-card">
+          <div class="comment-author">Alice</div>
+          <div class="comment-text">Je pense que l'IA va changer beaucoup de choses, mais il y a encore beaucoup de défis à relever.</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-author">Bob</div>
+          <div class="comment-text">Je suis d'accord, surtout en ce qui concerne l'éthique et les biais dans l'IA.</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-author">Charlie</div>
+          <div class="comment-text">Il ne faut pas oublier non plus l'impact sur l'emploi.</div>
+        </div>
+      </div>
+      <!-- Comment Form -->
+      <div class="comment-form">
+        <textarea rows="3" placeholder="Écrivez un commentaire..."></textarea>
+        <button type="submit">Ajouter un commentaire</button>
+      </div>
+    </div>
+
+    <!-- Discussion 2 -->
+    <div class="discussion-card">
+      <img src="/assets/Angular-vs-React-vs-Vue.js-A-Comparative-Study.jpg" alt="Développement Web" class="discussion-image">
+      <div class="discussion-title">Les nouvelles tendances en développement web pour 2025</div>
+      <div class="discussion-meta">Posté par Jane Smith | 10 Août 2024</div>
+      <div class="discussion-body">Quelles sont les technologies et frameworks que vous voyez dominer en 2025 ?</div>
+      <button class="view-comments-btn" data-bs-toggle="collapse" data-bs-target="#comments2">Voir les commentaires (5)</button>
+      <div id="comments2" class="comments-container collapse">
+        <div class="comment-card">
+          <div class="comment-author">Dave</div>
+          <div class="comment-text">Je pense que Svelte va vraiment prendre de l'ampleur.</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-author">Eve</div>
+          <div class="comment-text">J'ai entendu parler de Qwik, c'est une technologie à surveiller.</div>
+        </div>
+        <!-- Plus de commentaires ici -->
+      </div>
+      <!-- Comment Form -->
+      <div class="comment-form">
+        <textarea rows="3" placeholder="Écrivez un commentaire..."></textarea>
+        <button type="submit">Ajouter un commentaire</button>
+      </div>
+    </div>
+
+    <!-- Répétez les sections de discussion pour d'autres discussions -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
