@@ -24,10 +24,6 @@ img {
     height: auto;
 }
 
-
-
-
-
 .menu .icons {
     color: #fff;
     display: flex;
@@ -37,8 +33,18 @@ img {
     text-align: center;
     margin-left: 20%;
     justify-content: center; 
-
+    transition: background-color 0.3s, color 0.3s; /* Transition douce pour le hover */
 }
+
+.menu .icons:hover {
+    background-color: #fff; /* Change la couleur de fond en blanc au hover */
+    color: #000; /* Change la couleur du texte en noir au hover */
+}
+
+
+
+
+
 
 
 
