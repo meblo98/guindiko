@@ -1,1 +1,38 @@
-<p>inscription-mentor works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription mentors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Inscription_mentor.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <form>
+                <h2>Inscription</h2>
+                <div class="form-group">
+                    <div class="half-width">
+                        <label for="expertise">Domaine d’expertise</label>
+                        <input type="text" id="expertise" name="expertise" value="Developpement web" required>
+                    </div>
+                    <div class="half-width">
+                        <label for="disponibilite">Disponibilité</label>
+                        <input type="text" id="disponibilite" name="disponibilite" value="Plein temps" required>
+                    </div>
+                    <div class="full-width">
+                        <label for="experience">Expérience</label>
+                        <textarea id="experience" name="experience" required>Je suis . . .</textarea>
+                    </div>
+                </div>
+
+                <button type="submit">S'inscrire</button>
+                
+                <p>Vous avez déjà un compte? <a href="#">Connectez-vous.</a></p>
+            </form>
+        </div>
+        <div class="image-section"></div>
+    </div>
+</body>
+</html>
