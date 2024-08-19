@@ -13,6 +13,9 @@ import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.c
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
 
+import { ServicesComponent } from './portail/services/services.component'; //MOI Mise à jour 
+
+
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
@@ -28,6 +31,10 @@ export const routes: Routes = [
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
-  { path: 'ajout-rdv', component: FormRDVComponent}
+  { path: 'ajout-rdv', component: FormRDVComponent},
 
+  { path: 'services', component: ServicesComponent }// MOI Route pour l'accueil
+
+
+  
 ];
