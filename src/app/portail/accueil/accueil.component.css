@@ -416,11 +416,18 @@ header {
 
 
 
+
+
+
 /* Contact Section Styles */
 .contact-section {
     opacity: 73%;
     background-color: #f4f4f4; /* Couleur de fond légère en contraste */
-    background-image: url('image/image\ \(88\).png'); /* Chemin vers l'image de fond */
+    
+    /* background-image: url('assets/images/imageba.png');  */
+     /* Assurez-vous que le chemin est correct */ 
+
+
     background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
     background-position: center; /* Centre l'image dans la section */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
@@ -428,33 +435,6 @@ header {
     text-align: center;
     color: white; /* Assure que le texte est lisible sur l'image de fond */
 }
-
-.contact-section h3,
-.contact-section p,
-.contact-section form label {
-    color: white; /* Couleur du texte pour qu'il soit lisible sur l'image */
-}
-
-.contact-section input[type="email"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.contact-section button {
-    padding: 10px;
-    background-color: #4F772D;
-    color: white;
-    border: none;
-    border-radius: 1px;
-    cursor: pointer;
-}
-
-
-
 
 
 

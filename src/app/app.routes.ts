@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { InscriptionMenteComponent } from './auth/inscription-mente/inscription-mente.component';
 import { LoginComponent } from './auth/login/login.component';
 import { InscriptionMentorComponent } from './auth/inscription-mentor/inscription-mentor.component';
@@ -12,11 +13,14 @@ import { ListeRDVComponent } from './mente/liste-rdv/liste-rdv.component';
 import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.component';
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
+import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
+
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
   { path: 'dashbord', component: TableauBordComponent},
   { path: 'role', component: RoleComponent},
@@ -28,6 +32,11 @@ export const routes: Routes = [
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
-  { path: 'ajout-rdv', component: FormRDVComponent}
+  { path: 'ajout-rdv', component: FormRDVComponent},
+
+  
+  { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' }  // Définir une route par défaut si nécessaire
+
 
 ];
