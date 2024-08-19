@@ -12,6 +12,8 @@ import { ListeRDVComponent } from './mente/liste-rdv/liste-rdv.component';
 import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.component';
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
+import { AproposComponent } from './portail/apropos/apropos.component'; //MOI Mise à jour 
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,6 +30,9 @@ export const routes: Routes = [
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
-  { path: 'ajout-rdv', component: FormRDVComponent}
+  { path: 'ajout-rdv', component: FormRDVComponent},
+
+  { path: 'apropos', component: AproposComponent }// MOI Route pour l'accueil
+
 
 ];
