@@ -1,21 +1,113 @@
-.projet {
-  width: 768px;
-  height: 252px;
-  position: relative;
+
+.recent-projects {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.titre-projet {
-  left: 20px;
-  top: 24px;
-  position: absolute;
-  color: #0f172a;
+
+.recent-projects{
+  width: 50vw;
+}
+.other-sections{
+  width: 25vw;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background-color: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 8px;
+  margin-bottom: 15px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+
+.more {
+  font-size: 14px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.user-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f4ff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.user-card h3 {
   font-size: 16px;
-  font-family: Inter;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0.2px;
-  word-wrap: break-word;
+  color: #333;
+  margin-bottom: 10px;
 }
-.done
-{
-margin-top: -500px;
+
+.user-card p {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-card:nth-child(1) {
+  background-color: #286efa;
+  color: #fff;
+}
+
+.user-card:nth-child(2) {
+  background-color: #2cb4ff;
+  color: #fff;
+}
+
+.user-card:nth-child(3) {
+  background-color: #edf5ff;
+  color: #333;
+}
+
+.calendar, .messages, .tasks {
+background-color: #fff;
+border-radius: 12px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-list, .task-list {
+margin-top: 20px;
 }
