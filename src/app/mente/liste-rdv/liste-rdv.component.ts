@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Rdv, RdvService } from './../../services/rdv.service';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-liste-rdv',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,FormsModule, RouterModule,],
   templateUrl: './liste-rdv.component.html',
   styleUrl: './liste-rdv.component.css'
 })
-export class ListeRDVComponent {
+export class ListeRDVComponent implements OnInit {
+  rdv: Rdv [] = [];
+
+  constructor(private rdvService: RdvService) { }
+
+  ngOnInit(): void {
+    this.rdvService.getRdv().subscribe((rdv) => {
+      this.rdv = rdv;
+    });
+  }
 
 }

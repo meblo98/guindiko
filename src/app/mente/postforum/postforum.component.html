@@ -38,11 +38,31 @@
     </div>
   </nav>
 
-  <!-- Forum Header -->
-  <div class="forum-header">
-    <h1>Discussions - Informatique</h1>
-    <p>Explorez les dernières discussions et sujets d'actualité liés à l'informatique.</p>
+ <!-- Forum Header -->
+ <div class="forum-header">
+  <h1>Discussions - Informatique </h1>
+  <p>Explorez les dernières discussions et sujets d'actualité liés à l'informatique.</p>
+  <button class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#publishPostForm">Publier un post</button>
+</div>
+
+<!-- Publish Post Form -->
+<div id="publishPostForm" class="collapse">
+  <div class="container">
+    <h2>Créer un nouveau post</h2>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="postImage" class="form-label">Image</label>
+        <input type="file" class="form-control" id="postImage" formControlName="image" (change)="onFileSelected($event)">
+      </div>
+      <div class="mb-3">
+        <label for="postContent" class="form-label">Contenu</label>
+        <textarea class="form-control" id="postContent" rows="5" formControlName="contenu" placeholder="Entrez le contenu du post"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Publier</button>
+    </form>
   </div>
+
+</div>
 
   <!-- Discussions Container -->
   <div class="container discussions-container">

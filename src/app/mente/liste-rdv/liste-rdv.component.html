@@ -64,54 +64,44 @@
     <div class="container">
       <h2 class="text-center">Liste de vos Rendez-Vous</h2>
       <div class="table-responsive">
-        <table class="table table-bordered text-center">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Mentor</th>
-              <th>Type</th>
-              <th>Sujet</th>
-              <th>Durée</th>
-              <th>Lieu</th>
-              <th>Lien</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Example Row -->
-            <tr>
-              <td>12/08/2024</td>
-              <td>John Doe</td>
-              <td>En Ligne</td>
-              <td>Culture</td>
-              <td>2h</td>
-              <td>Zoom</td>
-              <td><a href="#">https://lien.com</a></td>
-              <td><span class="badge bg-success status-badge"><i class="fas fa-check-circle"></i> Confirmé</span></td>
-            </tr>
-            <!-- Repeat rows as needed -->
-          <tr>
-              <td>12/08/2024</td>
-              <td>John Doe</td>
-              <td>En Ligne</td>
-              <td>Culture</td>
-              <td>2h</td>
-              <td>Google Meet</td>
-              <td><a href="#">https://lien.com</a></td>
-              <td><span class="badge bg-warning text-dark status-badge"><i class="fas fa-sync-alt"></i> Reporté</span></td>
-          </tr>
-
-            <tr>
-              <td>12/08/2024</td>
-              <td>John Doe</td>
-              <td>Presentiel</td>
-              <td>Culture</td>
-              <td>2h</td>
-              <td>Siege Guindiko</td>
-              <td><a href="#">https://lien.com</a></td>
-              <td><span class="badge bg-danger status-badge"><i class="fas fa-times-circle"></i> Annulé</span></td>            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Mentor</th>
+                <th>Type</th>
+                <th>Sujet</th>
+                <th>Durée</th>
+                <th>Lieu</th>
+                <th>Lien</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rdvItem of rdv">
+                <td>{{ rdvItem.date_rendezVous }}</td>
+                <td>{{ rdvItem.mentor_id }}</td> <!-- Ajoutez un pipe ou service pour récupérer le nom du mentor -->
+                <td>{{ rdvItem.type }}</td>
+                <td>{{ rdvItem.sujet }}</td>
+                <td>{{ rdvItem.duree}} h</td>
+                <td>{{ rdvItem.lieu }}</td>
+                <td><a href="{{ rdvItem.lien }}">{{ rdvItem.lien }}</a></td>
+                <td>
+                  <span *ngIf="rdvItem.statut === 'Confirmé'" class="badge bg-success">
+                    <i class="fas fa-check-circle"></i> Confirmé
+                  </span>
+                  <span *ngIf="rdvItem.statut === 'Reporté'" class="badge bg-warning text-dark">
+                    <i class="fas fa-sync-alt"></i> Reporté
+                  </span>
+                  <span *ngIf="rdvItem.statut === 'Annule'" class="badge bg-danger">
+                    <i class="fas fa-times-circle"></i> Annulé
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
