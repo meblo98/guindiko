@@ -16,9 +16,10 @@ import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
 import { AccueilComponent } from './mente/accueil/accueil.component';
 import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
+import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '', redirectTo: '/liste-mentor', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
@@ -30,6 +31,7 @@ export const routes: Routes = [
   { path: 'forum', component: ForumComponent},
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
+  { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},

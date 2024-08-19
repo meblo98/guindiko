@@ -81,6 +81,14 @@ body {
 .btn-outline-secondary span {
   margin-left: 5px;
 }
+.btn-warning {
+  position: relative;
+  z-index: 10;
+}
+.card {
+  pointer-events: auto; /* Assurez-vous que pointer-events est activé */
+}
+
 
 .card .text-warning {
   font-size: 1.2rem;
