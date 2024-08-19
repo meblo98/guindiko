@@ -1,1 +1,51 @@
 <p>login works!</p>
+<div class="login-container">
+  <h2>Connexion</h2>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <!-- Champ Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="loginData.email"
+        class="form-control"
+        required
+        email
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        L'adresse email est obligatoire et doit être valide.
+      </div>
+    </div>
+
+    <!-- Champ Mot de Passe -->
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="loginData.password"
+        class="form-control"
+        required
+        minlength="6"
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" class="text-danger">
+        Le mot de passe est obligatoire et doit contenir au moins 6 caractères.
+      </div>
+    </div>
+
+    <!-- Bouton de Connexion -->
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
+      Connexion
+    </button>
+
+    <!-- Message d'erreur général -->
+    <div *ngIf="errorMessage" class="text-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

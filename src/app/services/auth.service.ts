@@ -7,22 +7,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private token: string | null = null;
+  private apiUrl = 'http://localhost:8000/api'; // Adjust this to your backend API URL
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post('/api/auth/login', { email, password });
+    return this.http.post(`${this.apiUrl}/login`, { email, password });
   }
 
   registerMentee(menteeData: any): Observable<any> {
-    return this.http.post('/api/auth/register-mentee', menteeData);
+    return this.http.post(`${this.apiUrl}/register-mentee`, menteeData);
   }
 
   registerMentor(mentorData: any): Observable<any> {
-    return this.http.post('/api/auth/register-mentor', mentorData);
+    return this.http.post(`${this.apiUrl}/register-mentor`, mentorData);
   }
-
   getToken() {
     return localStorage.getItem('token');
   }
