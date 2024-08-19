@@ -1,5 +1,5 @@
-/* Global Styles */
-body {
+ /* Global Styles */
+ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -121,7 +121,6 @@ header {
     font-size: 16px;
 }
 
-
 /* Footer Styles */
 footer {
     background-color: #343F69;
@@ -204,17 +203,6 @@ footer {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Arc en Ciel */
 .arc-en-ciel {
     padding: 50px 20px;
@@ -253,10 +241,6 @@ footer {
     font-size: 16px;
     color: #333;
 }
-
-
-
-
 
 /* Services Section */
 .services {
@@ -302,6 +286,7 @@ footer {
     font-size: 16px;
     color: #333;
 }
+
 .service-icon {
     font-size: 40px;
     color: #343F69; /* Couleur principale */
