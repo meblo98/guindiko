@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 20px;
+}
+
+.detail-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.detail-card {
+  margin-bottom: 20px;
+}
+
+.detail-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.detail-field label {
+  font-weight: bold;
+  color: #555;
+}
+
+.detail-field span {
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.back-btn {
+  background-color: #6c5ce7; /* Purple */
+}
+
+.edit-btn {
+  background-color: #FFA500; /* Orange */
+}
+
+.delete-btn {
+  background-color: #d9534f; /* Red */
+}
+
+.actions button:hover {
+  opacity: 0.8;
+}

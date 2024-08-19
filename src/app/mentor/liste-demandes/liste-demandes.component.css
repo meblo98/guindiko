@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 20px;
+}
+
+.mentor-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead th {
+  background-color: #FFA500; /* Orange background for header */
+  color: white;
+  padding: 15px 10px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tbody tr td a {
+  color: #6c5ce7; /* Purple color for links */
+  text-decoration: none;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.page-btn {
+  background-color: #6c5ce7; /* Purple color for buttons */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: #FFA500; /* Orange color for active page */
+}
+
+.page-btn.prev, .page-btn.next {
+  background-color: #f0f0f0; /* Light background for prev/next */
+  color: #6c5ce7;
+}
+
+.page-btn:hover {
+  background-color: #3a2bbf; /* Darker purple on hover */
+}
+
+.pagination span {
+  padding: 8px;
+  color: #888;
+}

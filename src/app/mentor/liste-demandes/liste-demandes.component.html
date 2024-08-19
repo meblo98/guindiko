@@ -1,1 +1,35 @@
-<p>liste-demandes works!</p>
+<div class="mentor-list">
+  <h2>listes demande mentorat</h2>
+  <table>
+      <thead>
+          <tr>
+              <th>Nom complet</th>
+              <th>Telephone</th>
+              <th>Adresse</th>
+              <th>email</th>
+              <th>Voir detail</th>
+              <th>Supprimer</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Awa</td>
+              <td>779 78 65 12</td>
+              <td>FANN</td>
+              <td>awa32gmail.com</td>
+              <td><a href="#">Voir detail</a></td>
+              <td><button class="delete-btn"><img src="trash-icon.svg" alt="Delete"></button></td>
+          </tr>
+          <!-- Repeat <tr> for each entry -->
+      </tbody>
+  </table>
+  <div class="pagination">
+      <button class="page-btn prev">&lt;</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <span>...</span>
+      <button class="page-btn">9</button>
+      <button class="page-btn">10</button>
+      <button class="page-btn next">&gt;</button>
+  </div>
+</div>
