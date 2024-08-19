@@ -1,1 +1,30 @@
-<p>role works!</p>
+<head>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Votre autre CSS ici -->
+</head>
+<h2>Gestion des Rôles</h2>
+
+<ul class="role-list">
+  <li *ngFor="let role of roles" class="role-item">
+    <span class="role-name">{{ role.name }}</span>
+    <div class="tab">
+      <button class="btn btn-edit" (click)="editRole(role)">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="btn btn-delete" (click)="deleteRole(role.id)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </li>
+</ul>
+
+<form (ngSubmit)="onSubmit()" #roleForm="ngForm" class="role-form">
+  <label for="name">Nom du Rôle:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="role.name" required class="form-control">
+
+  <button type="submit" [disabled]="!roleForm.form.valid" class="btn btn-submit">
+    <i class="fas" [ngClass]="{'fa-save': !editing, 'fa-sync': editing}"></i>
+    {{ editing ? 'Mettre à jour' : 'Enregistrer' }}
+  </button>
+</form>
