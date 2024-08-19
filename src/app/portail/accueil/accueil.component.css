@@ -111,7 +111,7 @@ header {
 
 
 /* Hero Section */
-.hero {
+/* .hero {
     display: flex;
     align-items: center;
     padding: 50px 20px;
@@ -123,7 +123,7 @@ header {
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 59px;
     margin-bottom: 20px;
 }
 
@@ -143,7 +143,75 @@ header {
 .hero-image {
     flex: 1;
     text-align: right;
+    height: 80%;
+} */
+
+
+
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 70px 30px;
+    background-color: #F4F4F4;
 }
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 51px;
+    margin-bottom: 90px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 90px;
+}
+
+.hero .btn {
+    background-color: #4F772D;
+    color: #fff;
+    padding: 30px 50px;
+    border: 2px;
+    cursor: pointer;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+    width: 300%; /* L'image prendra toute la largeur disponible */
+}
+
+.hero-image img {
+    opacity: 835%;
+    border-radius: 73px;
+    width: 200%; /* L'image prend toute la largeur disponible dans son conteneur */
+    height: auto; /* Maintient les proportions de l'image */
+    object-fit: cover; /* Assure que l'image couvre bien tout l'espace disponible */
+    max-width: 800px; /* Définit une largeur maximale si nécessaire */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* About Section */
 .about {
@@ -156,9 +224,11 @@ header {
     flex: 1;
 }
 
-.about h2 {
-    font-size: 32px;
-    text-align: center;
+.about h1{
+    
+    font-size: 350%;
+    color: #333;
+    text-align: left;
     margin-bottom: 40px;
     
 }
@@ -172,13 +242,15 @@ header {
     background-color: #4F772D;
     color: #fff;
     padding: 10px 20px;
-    border: 1px;
+    border: 2px;
     cursor: pointer;
 }
 
 .about-image {
-    flex: 1;
+    flex: -1;
     text-align: right;
+    width: 31%;
+    height: 120%;
 }
 
 
@@ -190,10 +262,13 @@ header {
     background-color: #F4F4F4;
 }
 
-.arc-en-ciel h2 {
-    font-size: 32px;
+.arc-en-ciel h1 {
+    font-size: 350%;
+    font-weight: 700;
+    color: #333;
     text-align: center;
     margin-bottom: 40px;
+    
 }
 
 .arc-container {
@@ -208,7 +283,7 @@ header {
     margin: 10px;
     flex: 1 1 200px; /* Flex-grow and basis to handle responsive design */
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -230,7 +305,7 @@ header {
     background-color: #4F772D;
     color: #fff;
     text-decoration: none;
-    border-radius: 1px;
+    border-radius: 5%;
     font-size: 14px;
     margin-top: 10px;
 }
@@ -250,8 +325,8 @@ header {
     text-align: center;
 }
 
-.testimonials h2 {
-    font-size: 36px;
+.testimonials h1 {
+    font-size: 350%;
     font-weight: 700;
     color: #333;
     margin-bottom: 40px;
@@ -310,8 +385,8 @@ header {
     padding: 10px 20px;
     background-color: #4F772D;
     color: #fff;
-    border: none;
-    border-radius: 1px;
+    border: 2px;
+    border-radius: 5%;
     cursor: pointer;
     font-size: 16px;
 }
