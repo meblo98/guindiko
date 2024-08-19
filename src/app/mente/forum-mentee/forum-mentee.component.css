@@ -23,7 +23,7 @@ h1{
 
 
 .hero-section {
-background-image: url('PlaceholderImage.png');
+background-image: url('/assets/PlaceholderImage.png');
 background-size: cover;
 position: relative;
 height: 600px;
