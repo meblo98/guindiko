@@ -29,36 +29,30 @@ export class ListeMentorsComponent implements OnInit{
   }
 
   requestMentorship(mentorId: number): void {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log('User Info:', user);
-  
-    if (user && user.id) {
-      this.authService.getMenteInfo(user.id).subscribe(
-        (mentee) => {
-          console.log('Mentee Info:', mentee);
-  
-          if (mentee && mentee.id) {
-            this.mentorService.requestMentorship(mentorId, mentee.id).subscribe({
-              next: (response) => {
-                console.log('Demande de mentorat envoyée avec succès:', response);
-              },
-              error: (error) => {
-                console.error('Erreur lors de la demande de mentorat:', error);
-              }
-            });
-          } else {
-            console.error('Mentee non trouvé ou ID manquant');
+    const storedMentee = localStorage.getItem('mentee');
+
+    // Vérifiez si l'objet 'mentee' existe dans le localStorage et n'est pas null
+    if (storedMentee) {
+      const mentee = JSON.parse(storedMentee);
+
+      // Vérifiez si mentee a une propriété 'id' définie
+      if (mentee && mentee.id) {
+        this.mentorService.requestMentorship(mentorId, mentee.id).subscribe({
+          next: (response) => {
+            console.log('Demande de mentorat envoyée avec succès:', response);
+          },
+          error: (err) => {
+            console.error('Erreur lors de l\'envoi de la demande de mentorat:', err);
           }
-        },
-        (error) => {
-          console.error('Erreur lors de la récupération des informations du mentee:', error);
-        }
-      );
+        });
+      } else {
+        console.error('ID du mentee non trouvé');
+      }
     } else {
-      console.error('Utilisateur non trouvé ou ID manquant');
+      console.error('Aucun mentee trouvé dans le localStorage');
     }
   }
-  
-  
-
 }
+
+
+

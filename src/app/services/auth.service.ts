@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, forkJoin } from 'rxjs';
-import { tap, map, switchMap } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { tap, map, switchMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,25 +26,27 @@ export class AuthService {
         // Récupérer les informations spécifiques en fonction du profil
         return forkJoin({
           mentee: this.getMenteInfo(userId),
-          mentor: this.getMentorInfo(userId),
-          admin: this.getAdminInfo(userId)
-        }).pipe(
-          tap(profile => {
-            // Stocker les informations de profil dans le localStorage
-            if (profile.mentee) {
-              localStorage.setItem('mentee', JSON.stringify(profile.mentee));
-            }
-            if (profile.mentor) {
-              localStorage.setItem('mentor', JSON.stringify(profile.mentor));
-            }
-            if (profile.admin) {
-              localStorage.setItem('admin', JSON.stringify(profile.admin));
-            }
-          })
-        );
+
+          // mentor: this.getMentorInfo(userId),
+          // admin: this.getAdminInfo(userId)
+        });
+      }),
+      tap(profile => {
+        // Stocker les informations de profil dans le localStorage
+        if (profile.mentee) {
+          localStorage.setItem('mentee', JSON.stringify(profile.mentee));
+          console.log('Mentee stored:', profile.mentee);
+        }
+        // if (profile.mentor) {
+        //   localStorage.setItem('mentor', JSON.stringify(profile.mentor));
+        // }
+        // if (profile.admin) {
+        //   localStorage.setItem('admin', JSON.stringify(profile.admin));
+        // }
       })
     );
   }
+
 
   // Méthode pour récupérer le jeton à partir du localStorage
   getToken() {
@@ -59,7 +61,11 @@ export class AuthService {
     });
 
     return this.http.get(`${this.apiUrl}/users`, { headers }).pipe(
-      map((response: any) => response.user) // Supposons que l'API renvoie les données de l'utilisateur dans le champ `user`
+      map((response: any) => response.user), // Supposons que l'API renvoie les données de l'utilisateur dans le champ `user`
+      catchError(error => {
+        console.error('Erreur lors de la récupération des informations de l\'utilisateur:', error);
+        throw error;
+      })
     );
   }
 
@@ -72,34 +78,45 @@ export class AuthService {
 
     return this.http.get(`${this.apiUrl}/mente/by-user/${userId}`, { headers }).pipe(
       tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
-      map((response: any) => response.mentee) // Assurez-vous que 'mentee' est la bonne clé
+      map((response: any) => response), // Assurez-vous que 'mentee' est la bonne clé
+      catchError(error => {
+        console.error('Erreur lors de la récupération des informations de mentee:', error);
+        throw error;
+      })
     );
   }
 
+  // // Méthode pour récupérer le mentor associé à l'utilisateur connecté
+  // getMentorInfo(userId: number): Observable<any> {
+  //   const token = this.getToken();
+  //   const headers = new HttpHeaders({
+  //     'Authorization': `Bearer ${token}`
+  //   });
 
-  // Méthode pour récupérer le mentor associé à l'utilisateur connecté
-  getMentorInfo(userId: number): Observable<any> {
-    const token = this.getToken();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+  //   return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
+  //     map((response: any) => response.mentor), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
+  //     catchError(error => {
+  //       console.error('Erreur lors de la récupération des informations de mentor:', error);
+  //       throw error;
+  //     })
+  //   );
+  // }
 
-    return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
-      map((response: any) => response.mentor) // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
-    );
-  }
+  // // Méthode pour récupérer l'admin associé à l'utilisateur connecté
+  // getAdminInfo(userId: number): Observable<any> {
+  //   const token = this.getToken();
+  //   const headers = new HttpHeaders({
+  //     'Authorization': `Bearer ${token}`
+  //   });
 
-  // Méthode pour récupérer l'admin associé à l'utilisateur connecté
-  getAdminInfo(userId: number): Observable<any> {
-    const token = this.getToken();
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-
-    return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
-      map((response: any) => response.admin) // Supposons que l'API renvoie les données de admin dans le champ `admin`
-    );
-  }
+  //   return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
+  //     map((response: any) => response.admin), // Supposons que l'API renvoie les données de admin dans le champ `admin`
+  //     catchError(error => {
+  //       console.error('Erreur lors de la récupération des informations de admin:', error);
+  //       throw error;
+  //     })
+  //   );
+  // }
 
   logout(): Observable<any> {
     const token = this.getToken();
@@ -111,15 +128,19 @@ export class AuthService {
       tap(() => {
         localStorage.clear(); // Nettoyer tout le stockage local lors de la déconnexion
         this.router.navigate(['/login']);
+      }),
+      catchError(error => {
+        console.error('Erreur lors de la déconnexion:', error);
+        throw error;
       })
     );
   }
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     return !!this.getToken();
   }
 
-  hasRole(role: string) {
+  hasRole(role: string): boolean {
     const roles = JSON.parse(localStorage.getItem('roles') || '[]');
     return roles.includes(role);
   }

@@ -20,19 +20,20 @@ export class MentorService {
   requestMentorship(mentorId: number, menteeId: number): Observable<any> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-  
-    return this.http.post(`${apiUrl}/demande-mentorat`, {
+
+    return this.http.post(`${apiUrl}/demandes`, {
       mentor_id: mentorId,
-      mentee_id: menteeId
+      mente_id: menteeId
     }, { headers }).pipe(
       catchError(error => {
         console.error('Erreur lors de la demande de mentorat', error);
         return throwError(error);
       })
     );
-    
+
   }
-  
+
 }
