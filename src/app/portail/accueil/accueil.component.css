@@ -594,7 +594,7 @@ input[type="reset"]:hover {
 
 /* Applique l'animation de clignotement à tout le conteneur lors du focus sur le formulaire */
 div:focus-within {
-    animation: blink 5s ease-in-out; /* Animation qui dure 5 secondes */
+    animation: blink 10s ease-in-out; /* Animation qui dure 5 secondes */
     outline: none;
 }
 
@@ -703,3 +703,6 @@ footer {
         margin: 10px 0;
     }
 }
+
+
+
