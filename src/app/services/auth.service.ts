@@ -69,13 +69,13 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-  
+
     return this.http.get(`${this.apiUrl}/mente/by-user/${userId}`, { headers }).pipe(
       tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
       map((response: any) => response.mentee) // Assurez-vous que 'mentee' est la bonne clé
     );
   }
-  
+
 
   // Méthode pour récupérer le mentor associé à l'utilisateur connecté
   getMentorInfo(userId: number): Observable<any> {
