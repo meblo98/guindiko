@@ -25,7 +25,6 @@ export const routes: Routes = [
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
   { path: 'dashboard', component: TableauBordComponent},
   { path: 'roles', component: RoleComponent},
