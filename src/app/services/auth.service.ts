@@ -27,8 +27,8 @@ export class AuthService {
         return forkJoin({
           mentee: this.getMenteInfo(userId),
 
-          // mentor: this.getMentorInfo(userId),
-          // admin: this.getAdminInfo(userId)
+          mentor: this.getMentorInfo(userId),
+          admin: this.getAdminInfo(userId)
         });
       }),
       tap(profile => {
@@ -37,12 +37,12 @@ export class AuthService {
           localStorage.setItem('mentee', JSON.stringify(profile.mentee));
           console.log('Mentee stored:', profile.mentee);
         }
-        // if (profile.mentor) {
-        //   localStorage.setItem('mentor', JSON.stringify(profile.mentor));
-        // }
-        // if (profile.admin) {
-        //   localStorage.setItem('admin', JSON.stringify(profile.admin));
-        // }
+        if (profile.mentor) {
+          localStorage.setItem('mentor', JSON.stringify(profile.mentor));
+        }
+        if (profile.admin) {
+          localStorage.setItem('admin', JSON.stringify(profile.admin));
+        }
       })
     );
   }
@@ -86,37 +86,37 @@ export class AuthService {
     );
   }
 
-  // // Méthode pour récupérer le mentor associé à l'utilisateur connecté
-  // getMentorInfo(userId: number): Observable<any> {
-  //   const token = this.getToken();
-  //   const headers = new HttpHeaders({
-  //     'Authorization': `Bearer ${token}`
-  //   });
+  // Méthode pour récupérer le mentor associé à l'utilisateur connecté
+  getMentorInfo(userId: number): Observable<any> {
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
 
-  //   return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
-  //     map((response: any) => response.mentor), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
-  //     catchError(error => {
-  //       console.error('Erreur lors de la récupération des informations de mentor:', error);
-  //       throw error;
-  //     })
-  //   );
-  // }
+    return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
+      map((response: any) => response.mentor), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
+      catchError(error => {
+        console.error('Erreur lors de la récupération des informations de mentor:', error);
+        throw error;
+      })
+    );
+  }
 
-  // // Méthode pour récupérer l'admin associé à l'utilisateur connecté
-  // getAdminInfo(userId: number): Observable<any> {
-  //   const token = this.getToken();
-  //   const headers = new HttpHeaders({
-  //     'Authorization': `Bearer ${token}`
-  //   });
+  // Méthode pour récupérer l'admin associé à l'utilisateur connecté
+  getAdminInfo(userId: number): Observable<any> {
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
 
-  //   return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
-  //     map((response: any) => response.admin), // Supposons que l'API renvoie les données de admin dans le champ `admin`
-  //     catchError(error => {
-  //       console.error('Erreur lors de la récupération des informations de admin:', error);
-  //       throw error;
-  //     })
-  //   );
-  // }
+    return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
+      map((response: any) => response.admin), // Supposons que l'API renvoie les données de admin dans le champ `admin`
+      catchError(error => {
+        console.error('Erreur lors de la récupération des informations de admin:', error);
+        throw error;
+      })
+    );
+  }
 
   logout(): Observable<any> {
     const token = this.getToken();
