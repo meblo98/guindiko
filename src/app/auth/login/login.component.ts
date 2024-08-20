@@ -31,7 +31,7 @@ export class LoginComponent {
         if (this.authService.hasRole('admin')) {
           this.router.navigate(['/dashboard']);
         } else if (this.authService.hasRole('mentor')) {
-          this.router.navigate(['/mentor']);
+          this.router.navigate(['/mentor-demande']);
         } else if (this.authService.hasRole('menti')) {
           this.router.navigate(['/liste-mentor']);
         } else {

@@ -22,30 +22,90 @@ export class AuthService {
       }),
       switchMap((response: any) => {
         const userId = response.user.id;
+        const roles = response.user.roles; // Define roles here
 
         // Récupérer les informations spécifiques en fonction du profil
-        return forkJoin({
-          mentee: this.getMenteInfo(userId),
-
-          mentor: this.getMentorInfo(userId),
-          admin: this.getAdminInfo(userId)
-        });
+        if (roles.includes('menti')) {
+          return this.getMenteInfo(userId).pipe(
+            tap(profile => {
+              // Stocker les informations de profil dans le localStorage
+              localStorage.setItem('mentee', JSON.stringify(profile));
+              console.log('Mentee stocké :', profile);
+            })
+          );
+        } else if (roles.includes('mentor')) {
+          return this.getMentorInfo(userId).pipe(
+            tap(profile => {
+              // Stocker les informations de profil dans le localStorage
+              localStorage.setItem('mentor', JSON.stringify(profile));
+              console.log('Mentor stocké :', profile);
+            })
+          );
+        } else if (roles.includes('admin')) {
+          return this.getAdminInfo(userId).pipe(
+            tap(profile => {
+              // Stocker les informations de profil dans le localStorage
+              localStorage.setItem('admin', JSON.stringify(profile));
+              console.log('Admin stocké :', profile);
+            })
+          );
+        } else {
+          return of(null); // Si l'utilisateur n'a pas de rôle correspondant, renvoyer null
+        }
       }),
-      tap(profile => {
-        // Stocker les informations de profil dans le localStorage
-        if (profile.mentee) {
-          localStorage.setItem('mentee', JSON.stringify(profile.mentee));
-          console.log('Mentee stored:', profile.mentee);
-        }
-        if (profile.mentor) {
-          localStorage.setItem('mentor', JSON.stringify(profile.mentor));
-        }
-        if (profile.admin) {
-          localStorage.setItem('admin', JSON.stringify(profile.admin));
-        }
+      catchError(error => {
+        console.error('Erreur lors de la connexion:', error);
+        throw error;
       })
     );
   }
+
+
+  // login(email: string, password: string): Observable<any> {
+  //   return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
+  //     tap((response: any) => {
+  //       // Stocker les informations de base de l'utilisateur
+  //       localStorage.setItem('token', response.token);
+  //       localStorage.setItem('roles', JSON.stringify(response.user.roles));
+  //       localStorage.setItem('userId', String(response.user.id));
+  //     }),
+  //     switchMap((response: any) => {
+  //       const userId = response.user.id;
+  //       const roles = response.user.roles;
+
+  //       // Récupérer les informations spécifiques en fonction du profil
+  //       if (roles.includes('menti')) {
+  //         return this.getMenteInfo(userId);
+  //       } else if (roles.includes('mentor')) {
+  //         return this.getMentorInfo(userId);
+  //       } else if (roles.includes('admin')) {
+  //         return this.getAdminInfo(userId);
+  //       } else {
+  //         return of(null); // Si l'utilisateur n'a pas de rôle correspondant, renvoyer null
+  //       }
+  //     }),
+  //     tap(profile => {
+  //       // Stocker les informations de profil dans le localStorage
+  //       if (profile) {
+  //         if (profile.mentee) {
+  //           localStorage.setItem('mentee', JSON.stringify(profile));
+  //           console.log('Mentee stocké :', profile);
+  //         } else if (profile.mentor) {
+  //           localStorage.setItem('mentor', JSON.stringify(profile));
+  //           console.log('Mentee stocké :', profile);
+
+  //         } else if (profile.admin) {
+  //           localStorage.setItem('admin', JSON.stringify(profile));
+  //           console.log('Mentee stocké :', profile);
+
+  //         }
+  //       } else {
+  //         console.error('Aucun profil correspondant trouvé.');
+  //       }
+  //     })
+  //   );
+  // }
+
 
 
   // Méthode pour récupérer le jeton à partir du localStorage
@@ -94,6 +154,7 @@ export class AuthService {
     });
 
     return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
+      tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
       map((response: any) => response.mentor), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
       catchError(error => {
         console.error('Erreur lors de la récupération des informations de mentor:', error);
@@ -110,6 +171,7 @@ export class AuthService {
     });
 
     return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
+      tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
       map((response: any) => response.admin), // Supposons que l'API renvoie les données de admin dans le champ `admin`
       catchError(error => {
         console.error('Erreur lors de la récupération des informations de admin:', error);
