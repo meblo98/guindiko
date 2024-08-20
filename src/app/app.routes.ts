@@ -19,7 +19,9 @@ import { AssignPermissionComponent } from './admin/assign-permission/assign-perm
 import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/liste-mentor', pathMatch: 'full' },
+
+
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'inscription-mente', component: InscriptionMenteComponent},
   { path: 'inscription-mentor', component: InscriptionMentorComponent},
