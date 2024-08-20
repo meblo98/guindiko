@@ -16,6 +16,7 @@ import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.c
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
 import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
+import { AccueilMenteeComponent } from './mente/accueil-mentee/accueil-mentee.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -36,5 +37,6 @@ export const routes: Routes = [
   { path: 'postforum', component:PostforumComponent},
   { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'forum-mentee', component: ForumMenteeComponent},
+  { path: 'accueilMenteeAuth', component: AccueilMenteeComponent}
 
 ];

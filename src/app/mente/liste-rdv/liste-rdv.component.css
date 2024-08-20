@@ -3,7 +3,7 @@ body {
 }
 
 .navbar {
-  background-color: #31287C;
+  background-color: #36494E;
 }
 
 .navbar-brand,
@@ -12,40 +12,66 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #F6A500;
+  color: #D2B48C;
 }
 
 .hero-section {
   background-image: url('/assets/PlaceholderImage.png');
   background-size: cover;
   background-position: center;
-  background-color: #31287C;
-  color: white;
-  padding: 20px 0;
-  text-align: left;
   position: relative;
   height: 600px;
-  font-size: 45px;
+  color: white;
+  padding: 20px 0;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Couche noire avec 50% d'opacité */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 24px;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
 .hero-section .btn {
-  background-color: #F6A500;
-  color: #31287C;
+  background-color: #D2B48C;
+  color: #36494E;
   font-weight: bold;
   border-radius: 5px;
+  margin-top: 20px;
 }
+
 
 /* Table Section */
 .table-section h2 {
   margin-bottom: 30px;
-  color: #F6A500;
+  color: #D2B48C;
   font-weight: bold;
 }
 
 /* Styling for the table */
 table th {
-  background-color: #F6A500;
-  color: #31287C;
+  background-color: #D2B48C;
+  color: #36494E;
   padding: 15px;
   vertical-align: middle;
 }
@@ -70,11 +96,11 @@ table .badge {
 
 /* Footer styles */
 footer.bg-primary {
-  background-color: #31287C !important;
+  background-color: #36494E !important;
 }
 
 footer .text-warning {
-  color: #F6A500 !important;
+  color: #D2B48C !important;
 }
 
 footer .social-icons i {
@@ -92,12 +118,12 @@ footer .nav-link {
 }
 
 footer .nav-link:hover {
-  color: #F6A500;
+  color: #D2B48C;
 }
 
 footer hr {
   margin: 1rem 0;
-  border-top: 1px solid #F6A500;
+  border-top: 1px solid #D2B48C;
 }
 /* Add this to your existing CSS */
 .status-badge {
