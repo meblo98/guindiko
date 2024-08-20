@@ -95,35 +95,60 @@ table .badge {
 }
 
 /* Footer styles */
-footer.bg-primary {
-  background-color: #36494E !important;
-}
-
-footer .text-warning {
-  color: #D2B48C !important;
-}
-
-footer .social-icons i {
-  font-size: 1.5rem;
+footer {
+  background-color: #36494E;
   color: white;
+  padding: 30px 20px;
 }
 
-footer .social-icons a {
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.footer-nav a {
+  color: white;
+  margin-left: 15px;
   text-decoration: none;
 }
 
-footer .nav-link {
-  padding: 0 15px;
-  color: white;
+.social-icons {
+  display: flex;
+  justify-content: flex-end; }
+
+.social-icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 24px;
+    text-decoration: none;
 }
 
-footer .nav-link:hover {
-  color: #D2B48C;
+.footer-separator {
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
 }
 
-footer hr {
-  margin: 1rem 0;
-  border-top: 1px solid #D2B48C;
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: left;
 }
 /* Add this to your existing CSS */
 .status-badge {
