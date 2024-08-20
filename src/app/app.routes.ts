@@ -19,6 +19,8 @@ import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mi
 
 import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
+import { AproposComponent } from './portail/apropos/apropos.component'; //MOI Mise à jour 
+
 
 export const routes: Routes = [
 
@@ -42,7 +44,8 @@ export const routes: Routes = [
 
   { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil
   { path: 'user-form/:id', component: UserFormComponent },
-  { path: 'assign-permission', component: AssignPermissionComponent }
+  { path: 'assign-permission', component: AssignPermissionComponent },
+  { path: 'apropos', component: AproposComponent } // MOI Route pour l'accueil
 
 
 ];
