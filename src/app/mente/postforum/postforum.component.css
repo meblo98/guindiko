@@ -1,0 +1,137 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #31287C;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #F6A500;
+}
+
+.forum-header {
+  background-color: #31287C;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.forum-header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.discussions-container {
+  padding: 40px 20px;
+}
+
+.discussion-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  transition: box-shadow 0.3s;
+}
+
+.discussion-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.discussion-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.discussion-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #31287C;
+}
+
+.discussion-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.discussion-body {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.comments-container {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.comment-card {
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #31287C;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.view-comments-btn {
+  background-color: #31287C;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px 15px;
+}
+
+.view-comments-btn:hover {
+  background-color: #F6A500;
+  color: #31287C;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.comment-form button {
+  background-color: #31287C;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+
+.comment-form button:hover {
+  background-color: #F6A500;
+  color: #31287C;
+}

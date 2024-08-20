@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #31287C;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #F6A500;
+}
+
+.hero-section {
+  background-image: url('/assets/PlaceholderImage.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #31287C;
+  color: white;
+  padding: 20px 0;
+  text-align: left;
+  position: relative;
+  height: 600px;
+  font-size: 45px;
+}
+
+.hero-section .btn {
+  background-color: #F6A500;
+  color: #31287C;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Table Section */
+.table-section h2 {
+  margin-bottom: 30px;
+  color: #F6A500;
+  font-weight: bold;
+}
+
+/* Styling for the table */
+table th {
+  background-color: #F6A500;
+  color: #31287C;
+  padding: 15px;
+  vertical-align: middle;
+}
+
+table tbody {
+  background-color: #EBF0FA;
+}
+
+table td{
+  padding: 15px;
+  color: black;
+  font-weight: bold;
+}
+
+table tr {
+  margin-bottom: 10px;
+}
+
+table .badge {
+  font-size: 1em;
+}
+
+/* Footer styles */
+footer.bg-primary {
+  background-color: #31287C !important;
+}
+
+footer .text-warning {
+  color: #F6A500 !important;
+}
+
+footer .social-icons i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer .social-icons a {
+  text-decoration: none;
+}
+
+footer .nav-link {
+  padding: 0 15px;
+  color: white;
+}
+
+footer .nav-link:hover {
+  color: #F6A500;
+}
+
+footer hr {
+  margin: 1rem 0;
+  border-top: 1px solid #F6A500;
+}
+/* Add this to your existing CSS */
+.status-badge {
+width: 120px; /* Adjust the width as needed */
+display: inline-block;
+text-align: center;
+white-space: nowrap;
+}

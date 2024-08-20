@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PortailComponent } from "./mente/accueil/accueil.component";
+import { ListeMentorsComponent } from "./mente/liste-mentors/liste-mentors.component";
+import { ListeRDVComponent } from "./mente/liste-rdv/liste-rdv.component";
+import { ForumComponent } from "./admin/forum/forum.component";
+import { PostforumComponent } from "./mente/postforum/postforum.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PortailComponent, ListeMentorsComponent, ListeRDVComponent, ForumComponent, PostforumComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -7,11 +7,14 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { RoleComponent } from '../role/role.component';
+import { PermissionsComponent } from "../permission/permission.component";
+import { AssignPermissionComponent } from '../assign-permission/assign-permission.component';
 
 @Component({
   selector: 'app-gestion-user',
   standalone: true,
-  imports: [SidebarComponent, SidebarNavigateComponent, FormsModule, RouterModule, CommonModule],
+  imports: [SidebarComponent, SidebarNavigateComponent, FormsModule, RouterModule, CommonModule, RoleComponent, PermissionsComponent, AssignPermissionComponent],
   templateUrl: './gestion-user.component.html',
   styleUrls: ['./gestion-user.component.css']
 })

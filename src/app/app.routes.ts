@@ -19,13 +19,18 @@ import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mi
 
 import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
-import { AproposComponent } from './portail/apropos/apropos.component'; //MOI Mise à jour 
+import { AproposComponent } from './portail/apropos/apropos.component'; //MOI Mise à jour
 
 
-import { ServicesComponent } from './portail/services/services.component'; //MOI Mise à jour 
+import { ServicesComponent } from './portail/services/services.component'; //MOI Mise à jour
 
+import { PortailComponent } from './mente/accueil/accueil.component';
+// import { DetailUserComponent } from './admin/detail-user/detail-user.component';
+// import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
+import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
 
 export const routes: Routes = [
+
 
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -39,6 +44,7 @@ export const routes: Routes = [
   { path: 'forum', component: ForumComponent},
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
+  { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'mentor-rdv', component: ListeRDVComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
@@ -46,6 +52,7 @@ export const routes: Routes = [
 
 
   { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil
+  { path: 'accueil-mentee', component: PortailComponent},
   { path: 'user-form/:id', component: UserFormComponent },
   { path: 'assign-permission', component: AssignPermissionComponent },
   { path: 'apropos', component: AproposComponent }, // MOI Route pour l'accueil
@@ -54,5 +61,5 @@ export const routes: Routes = [
   { path: 'services', component: ServicesComponent }// MOI Route pour l'accueil
 
 
-  
+
 ];
