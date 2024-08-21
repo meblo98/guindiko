@@ -1,0 +1,35 @@
+/* Styles pour le composant Forum */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #df33d6;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
