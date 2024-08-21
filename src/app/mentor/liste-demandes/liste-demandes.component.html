@@ -1,1 +1,51 @@
-<p>liste-demandes works!</p>
+<app-navbar-mentor></app-navbar-mentor>
+
+
+<div class="mentor-list mt-5">
+  <h2>listes demande mentorat</h2>
+  <hr class="mb-5 mt-5">
+  <table>
+    <thead>
+      <tr>
+        <th>Nom complet</th>
+        <th>Téléphone</th>
+        <th>Adresse</th>
+        <th>Email</th>
+        <th>Voir détail</th>
+        <th>Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of mentorshipRequests">
+        <td>{{ request.nom_complet }}</td>
+        <td>{{ request.telephone }}</td>
+        <td>{{ request.adresse }}</td>
+        <td>{{ request.email }}</td>
+        <td><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Voir détail</a></td>
+        <td><button class="delete-btn">Supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+      <button class="page-btn prev">&lt;</button>
+
+      <button class="page-btn next">&gt;</button>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Détail menté</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-detail-demande></app-detail-demande>
+
+      </div>
+
+    </div>
+  </div>

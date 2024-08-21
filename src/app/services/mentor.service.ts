@@ -33,7 +33,16 @@ export class MentorService {
         return throwError(error);
       })
     );
+  }
 
+  // affichage liste des demandes pour un mentor
+  getMentorshipRequests(mentorId: number): Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<any[]>(`${apiUrl}/demandes`, { headers });
   }
 
 }
