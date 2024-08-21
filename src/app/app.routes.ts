@@ -26,13 +26,13 @@ import { PortailComponent } from './mente/accueil/accueil.component';
 // import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
 import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
        
-// Importation des composants
-import { ForumComponent } from './forum/forum/forum.component'; //MOI FORUM
+            // Importation des composants BASSINE
+            import { ForumComponent } from './forum/forum/forum.component'; //MOI FORUM
+            import { PostForumComponent } from './post/post-forum/post-forum.component'; // Composant pour les posts de forums
 
-      // import { ForumComponent } from './admin/forum/forum.component'; //moi ici
-      // import { PostForumComponent } from './admin/post-forum/post-forum.component'; // Composant pour les posts de forums
-      // import { CommentaireForumComponent } from './admin/commentaire-forum/commentaire-forum.component'; // Composant pour les commentaires de forums
-      
+            // import { ForumComponent } from './admin/forum/forum.component'; //moi ici
+            // import { CommentaireForumComponent } from './admin/commentaire-forum/commentaire-forum.component'; // Composant pour les commentaires de forums
+                  
 export const routes: Routes = [
 { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -44,7 +44,7 @@ export const routes: Routes = [
   { path: 'user', component: GestionUserComponent},
   { path: 'detail-user/:id', component: DetailUserComponent},
 
-  // { path: 'forum', component: ForumComponent},  // trouver
+  // { path: 'forum', component: ForumComponent},  // trouver ICI
 
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
@@ -60,8 +60,10 @@ export const routes: Routes = [
   { path: 'apropos', component: AproposComponent }, // MOI Route pour l'accueil
   { path: 'services', component: ServicesComponent },// MOI Route pour l'accueil
 
-          // Définition des routes
+          // Définition des routes BASSINE
           { path: 'forum', component: ForumComponent }, // MOI Route pour FORUM
+          { path: 'post-forum/:id', component: PostForumComponent }, // Route pour afficher les détails d'un post
+           { path: 'post-forum', component: PostForumComponent }
 
 
             // { path: 'post-forum', component: PostForumComponent }
