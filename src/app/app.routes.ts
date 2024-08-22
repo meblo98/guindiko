@@ -29,6 +29,8 @@ import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.compo
             // Importation des composants BASSINE
             import { ForumComponent } from './forum/forum/forum.component'; //MOI FORUM
             import { PostForumComponent } from './post/post-forum/post-forum.component'; // Composant pour les posts de forums
+            import { PostCommentaireComponent } from './commentaire/post-commentaire/post-commentaire.component';
+
 
             // import { ForumComponent } from './admin/forum/forum.component'; //moi ici
             // import { CommentaireForumComponent } from './admin/commentaire-forum/commentaire-forum.component'; // Composant pour les commentaires de forums
@@ -62,10 +64,16 @@ export const routes: Routes = [
 
           // Définition des routes BASSINE
           { path: 'forum', component: ForumComponent }, // MOI Route pour FORUM
-          { path: 'post-forum/:id', component: PostForumComponent }, // Route pour afficher les détails d'un post
-           { path: 'post-forum', component: PostForumComponent }
+
+          { path: 'post-forum', component: PostForumComponent },
+          { path: 'post-forum/:id', component: PostForumComponent },// Route pour afficher les détails d'un post
+
+          { path: 'post-commentaire', component: PostCommentaireComponent },
+          { path: 'post-commentaire/:id', component: PostCommentaireComponent }
 
 
+
+           
             // { path: 'post-forum', component: PostForumComponent }
 
           // { path: 'commentaire-forum', component: CommentaireForumComponent },
