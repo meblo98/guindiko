@@ -1,28 +1,28 @@
-<div>
-    <h1>Liste des Commentaires</h1>
-    <button (click)="createCommentaire()">Ajouter un commentaire</button>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Contenu</th>
-          <th>User ID</th>
-          <th>Post Forum ID</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let commentaire of commentaires">
-          <td>{{ commentaire.id }}</td>
-          <td>{{ commentaire.contenu }}</td>
-          <td>{{ commentaire.user_id }}</td>
-          <td>{{ commentaire.post_forum_id }}</td>
-          <td>
-            <button (click)="editCommentaire(commentaire.id)">Éditer</button>
-            <button (click)="deleteCommentaire(commentaire.id)">Supprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="comment-section">
+  <h1>Liste des Commentaires</h1>
+  <button class="add-comment-button" (click)="createCommentaire('Mon commentaire')">Ajouter un commentaire</button>
   
+  <table class="comment-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Contenu</th>
+        <th>User ID</th>
+        <th>Post Forum ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commentaire of commentaires">
+        <td>{{ commentaire.id }}</td>
+        <td>{{ commentaire.contenu }}</td>
+        <td>{{ commentaire.user_id }}</td>
+        <td>{{ commentaire.post_forum_id }}</td>
+        <td>
+          <button class="edit-button" (click)="editCommentaire(commentaire.id)">Éditer</button>
+          <button class="delete-button" (click)="deleteCommentaire(commentaire.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

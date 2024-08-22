@@ -1,0 +1,80 @@
+.comment-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comment-section h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #343F69; /* Utilisez la couleur navy blue que vous préférez */
+  }
+  
+  .add-comment-button {
+    padding: 10px 15px;
+    background-color: #343F69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .add-comment-button:hover {
+    background-color: #2c355b;
+  }
+  
+  .comment-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .comment-table th, .comment-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .comment-table th {
+    background-color: #343F69;
+    color: white;
+  }
+  
+  .comment-table td {
+    color: #555;
+  }
+  
+  .comment-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .edit-button, .delete-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-button {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-button {
+    background-color: #DC3545;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  

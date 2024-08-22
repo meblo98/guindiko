@@ -1,29 +1,38 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Component({
-  selector: 'app-post-commentaire',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule],
-  templateUrl: './post-commentaire.component.html',
-  styleUrls: ['./post-commentaire.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class PostCommentaireComponent {
-  commentaires = []; // Remplacez par votre source de données réelle
+export class CommentaireForumService {
 
-  createCommentaire() {
-    // Implémentez la logique pour ajouter un commentaire
-    console.log("Ajout d'un commentaire");
+  private apiUrl = 'http://localhost:8000/api/post-commentaire'; // Remplacez par l'URL de votre API
+
+  constructor(private http: HttpClient) {}
+
+  // Méthode pour récupérer tous les commentaires
+  getCommentaires(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/commentaires`);
   }
 
-  editCommentaire(id: number) {
-    // Implémentez la logique pour éditer un commentaire
-    console.log("Édition du commentaire avec ID:", id);
+  // Méthode pour récupérer un commentaire spécifique par ID
+  getCommentaireById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/commentaires/${id}`);
   }
 
-  deleteCommentaire(id: number) {
-    // Implémentez la logique pour supprimer un commentaire
-    console.log("Suppression du commentaire avec ID:", id);
+  // Méthode pour créer un nouveau commentaire
+  createCommentaire(commentaire: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/commentaires`, commentaire);
+  }
+
+  // Méthode pour mettre à jour un commentaire existant
+  updateCommentaire(commentaire: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/commentaires/${commentaire.id}`, commentaire);
+  }
+
+  // Méthode pour supprimer un commentaire
+  deleteCommentaire(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/commentaires/${id}`);
   }
 }
