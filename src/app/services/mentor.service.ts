@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { apiUrl } from './apiURL';
 import { AuthService } from './auth.service';
 
@@ -35,14 +35,59 @@ export class MentorService {
     );
   }
 
-  // affichage liste des demandes pour un mentor
-  getMentorshipRequests(mentorId: number): Observable<any[]> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
+ // Méthode pour récupérer les demandes de mentorat pour le mentor connecté
+ getMentorshipRequests(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
 
-    return this.http.get<any[]>(`${apiUrl}/demandes`, { headers });
+  return this.http.get(`${apiUrl}/demandes`, { headers });
+}
+
+// Méthode pour récupérer les détails d'une demande de mentorat spécifique
+getMentorshipRequestById(id: number): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.get(`${apiUrl}/demandes/${id}`, { headers });
+}
+
+   // Méthode pour l'inscription des mentors
+   registerMentor(
+    nom: string,
+    prenom: string,
+    numeroTelephone: string,
+    email: string,
+    password: string,
+    domaineExpertise: string,
+    experience: string,
+    disponibilite: string,
+    password_confirmation: string
+  ): Observable<any> {
+    const body = {
+      nom,
+      prenom,
+      numeroTelephone,
+      email,
+      password,
+      domaineExpertise,
+      experience,
+      disponibilite,
+      password_confirmation
+    };
+
+    return this.http.post(`${apiUrl}/mentors`, body).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: any): Observable<never> {
+    // Gérer l'erreur de manière appropriée ici
+    console.error('Une erreur est survenue', error);
+    return throwError(() => new Error('Une erreur est survenue. Veuillez réessayer plus tard.'));
   }
 
 }

@@ -3,6 +3,7 @@ import { NavbarMentorComponent } from "../navbar-mentor/navbar-mentor.component"
 import { DetailDemandeComponent } from '../detail-demande/detail-demande.component';
 import { MentorService } from '../../services/mentor.service';
 import { CommonModule } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-liste-demandes',
@@ -14,19 +15,32 @@ import { CommonModule } from '@angular/common';
 export class ListeDemandesComponent {
 
   mentorshipRequests: any[] = [];
+  selectedRequestId: number | null = null;
 
-  constructor(private mentorService: MentorService) {}
+  constructor(private mentorService: MentorService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
-    const mentorId = Number(localStorage.getItem('mentor')); // Récupérer l'ID du mentor connecté
+    this.getMentorshipRequests();
+  }
 
-    this.mentorService.getMentorshipRequests(mentorId).subscribe({
-      next: (requests) => {
-        this.mentorshipRequests = requests;
+
+  getMentorshipRequests(): void {
+    this.mentorService.getMentorshipRequests().subscribe({
+      next: (response) => {
+        this.mentorshipRequests = response.data; // Assurez-vous que la réponse contient les données
+        console.log('Liste des demandes de mentorat:', this.mentorshipRequests);
       },
-      error: (error) => {
-        console.error('Erreur lors de la récupération des demandes de mentorat :', error);
+      error: (err) => {
+        console.error('Erreur lors de la récupération des demandes de mentorat:', err);
       }
     });
   }
+
+    // Méthode pour ouvrir le modal et afficher les détails d'une demande spécifique
+    openDetailsModal(requestId: number): void {
+      this.selectedRequestId = requestId;
+      const modalRef = this.modalService.open(DetailDemandeComponent, { size: 'lg' });
+      modalRef.componentInstance.requestId = this.selectedRequestId;
+    }
+
 }

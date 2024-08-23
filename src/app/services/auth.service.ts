@@ -30,6 +30,7 @@ export class AuthService {
             tap(profile => {
               // Stocker les informations de profil dans le localStorage
               localStorage.setItem('mentee', JSON.stringify(profile));
+              localStorage.setItem('mentorId', String(profile.id));
               console.log('Mentee stocké :', profile);
             })
           );
@@ -38,6 +39,7 @@ export class AuthService {
             tap(profile => {
               // Stocker les informations de profil dans le localStorage
               localStorage.setItem('mentor', JSON.stringify(profile));
+              localStorage.setItem('mentorId', String(profile.id));
               console.log('Mentor stocké :', profile);
             })
           );
@@ -60,51 +62,6 @@ export class AuthService {
     );
   }
 
-
-  // login(email: string, password: string): Observable<any> {
-  //   return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
-  //     tap((response: any) => {
-  //       // Stocker les informations de base de l'utilisateur
-  //       localStorage.setItem('token', response.token);
-  //       localStorage.setItem('roles', JSON.stringify(response.user.roles));
-  //       localStorage.setItem('userId', String(response.user.id));
-  //     }),
-  //     switchMap((response: any) => {
-  //       const userId = response.user.id;
-  //       const roles = response.user.roles;
-
-  //       // Récupérer les informations spécifiques en fonction du profil
-  //       if (roles.includes('menti')) {
-  //         return this.getMenteInfo(userId);
-  //       } else if (roles.includes('mentor')) {
-  //         return this.getMentorInfo(userId);
-  //       } else if (roles.includes('admin')) {
-  //         return this.getAdminInfo(userId);
-  //       } else {
-  //         return of(null); // Si l'utilisateur n'a pas de rôle correspondant, renvoyer null
-  //       }
-  //     }),
-  //     tap(profile => {
-  //       // Stocker les informations de profil dans le localStorage
-  //       if (profile) {
-  //         if (profile.mentee) {
-  //           localStorage.setItem('mentee', JSON.stringify(profile));
-  //           console.log('Mentee stocké :', profile);
-  //         } else if (profile.mentor) {
-  //           localStorage.setItem('mentor', JSON.stringify(profile));
-  //           console.log('Mentee stocké :', profile);
-
-  //         } else if (profile.admin) {
-  //           localStorage.setItem('admin', JSON.stringify(profile));
-  //           console.log('Mentee stocké :', profile);
-
-  //         }
-  //       } else {
-  //         console.error('Aucun profil correspondant trouvé.');
-  //       }
-  //     })
-  //   );
-  // }
 
 
 
@@ -155,7 +112,7 @@ export class AuthService {
 
     return this.http.get(`${this.apiUrl}/mentor/by-user/${userId}`, { headers }).pipe(
       tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
-      map((response: any) => response.mentor), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
+      map((response: any) => response), // Supposons que l'API renvoie les données de mentor dans le champ `mentor`
       catchError(error => {
         console.error('Erreur lors de la récupération des informations de mentor:', error);
         throw error;
@@ -172,7 +129,7 @@ export class AuthService {
 
     return this.http.get(`${this.apiUrl}/admin/by-user/${userId}`, { headers }).pipe(
       tap(response => console.log('Mentee API Response:', response)), // Log pour voir la réponse complète
-      map((response: any) => response.admin), // Supposons que l'API renvoie les données de admin dans le champ `admin`
+      map((response: any) => response), // Supposons que l'API renvoie les données de admin dans le champ `admin`
       catchError(error => {
         console.error('Erreur lors de la récupération des informations de admin:', error);
         throw error;
@@ -197,6 +154,8 @@ export class AuthService {
       })
     );
   }
+
+
 
   isLoggedIn(): boolean {
     return !!this.getToken();

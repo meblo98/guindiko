@@ -1,1 +1,79 @@
-<p>inscription-mentor works!</p>
+<!-- <form [formGroup]="mentorForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nom">Nom</label>
+    <input id="nom" formControlName="nom" />
+    <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)">
+      <div *ngIf="f.nom.errors?.required">Le nom est requis.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="prenom">Prénom</label>
+    <input id="prenom" formControlName="prenom" />
+    <div *ngIf="f.prenom.invalid && (f.prenom.dirty || f.prenom.touched)">
+      <div *ngIf="f.prenom.errors?.required">Le prénom est requis.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="numeroTelephone">Numéro de Téléphone</label>
+    <input id="numeroTelephone" formControlName="numeroTelephone" />
+    <div *ngIf="f.numeroTelephone.invalid && (f.numeroTelephone.dirty || f.numeroTelephone.touched)">
+      <div *ngIf="f.numeroTelephone.errors?.required">Le numéro de téléphone est requis.</div>
+      <div *ngIf="f.numeroTelephone.errors?.pattern">Le numéro de téléphone est invalide.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" />
+    <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+      <div *ngIf="f.email.errors?.required">L'email est requis.</div>
+      <div *ngIf="f.email.errors?.email">L'email est invalide.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Mot de Passe</label>
+    <input id="password" type="password" formControlName="password" />
+    <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+      <div *ngIf="f.password.errors?.required">Le mot de passe est requis.</div>
+      <div *ngIf="f.password.errors?.minlength">Le mot de passe doit contenir au moins 6 caractères.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="password_confirmation">Confirmation du Mot de Passe</label>
+    <input id="password_confirmation" type="password" formControlName="password_confirmation" />
+    <div *ngIf="mentorForm.errors?.mismatch && (f.password_confirmation.dirty || f.password_confirmation.touched)">
+      Les mots de passe ne correspondent pas.
+    </div>
+  </div>
+
+  <div>
+    <label for="domaineExpertise">Domaine d'Expertise</label>
+    <input id="domaineExpertise" formControlName="domaineExpertise" />
+    <div *ngIf="f.domaineExpertise.invalid && (f.domaineExpertise.dirty || f.domaineExpertise.touched)">
+      <div *ngIf="f.domaineExpertise.errors?.required">Le domaine d'expertise est requis.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="experience">Expérience</label>
+    <input id="experience" formControlName="experience" />
+    <div *ngIf="f.experience.invalid && (f.experience.dirty || f.experience.touched)">
+      <div *ngIf="f.experience.errors?.required">L'expérience est requise.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="disponibilite">Disponibilité</label>
+    <input id="disponibilite" formControlName="disponibilite" />
+    <div *ngIf="f.disponibilite.invalid && (f.disponibilite.dirty || f.disponibilite.touched)">
+      <div *ngIf="f.disponibilite.errors?.required">La disponibilité est requise.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="isSubmitting">S'inscrire</button>
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</form> -->
