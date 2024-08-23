@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  background-color: #31287C;
+  background-color: #36494E;
 }
 
 .navbar-brand,
@@ -14,11 +14,11 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #F6A500;
+  color: #D2B48C;
 }
 
 .forum-header {
-  background-color: #31287C;
+  background-color: #36494E;
   color: white;
   padding: 40px 20px;
   text-align: center;
@@ -56,7 +56,7 @@ body {
 .discussion-title {
   font-size: 20px;
   font-weight: bold;
-  color: #31287C;
+  color: #36494E;
 }
 
 .discussion-meta {
@@ -87,7 +87,7 @@ body {
 
 .comment-author {
   font-weight: bold;
-  color: #31287C;
+  color: #36494E;
 }
 
 .comment-text {
@@ -97,16 +97,16 @@ body {
 }
 
 .view-comments-btn {
-  background-color: #31287C;
-  color: white;
+  background-color: #D2B48C;
+  color: #36494E;
   border-radius: 5px;
   font-size: 14px;
   padding: 5px 15px;
 }
 
 .view-comments-btn:hover {
-  background-color: #F6A500;
-  color: #31287C;
+  background-color: #36494E;
+  color: white;
 }
 
 .comment-form {
@@ -122,8 +122,8 @@ body {
 }
 
 .comment-form button {
-  background-color: #31287C;
-  color: white;
+  background-color: #D2B48C;
+  color: #36494E;
   border-radius: 5px;
   border: none;
   font-size: 14px;
@@ -132,6 +132,19 @@ body {
 }
 
 .comment-form button:hover {
-  background-color: #F6A500;
-  color: #31287C;
+  background-color: #36494E;
+  color: white;
+}
+
+/* .btn:hover {
+  background-color: #36494E;
+  color: #ffff;
+} */
+.btn{
+  background-color: #D2B48C;
+  /* color: white;
+  border-radius: 5px;
+  border: none; */
+  padding: 10px 20px;
+  font-size: 14px;
 }

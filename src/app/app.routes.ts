@@ -17,6 +17,8 @@ import { ListeRDVComponent } from './mente/liste-rdv/liste-rdv.component';
 import { ListeDemandesComponent } from './mentor/liste-demandes/liste-demandes.component';
 import { DetailDemandeComponent } from './mentor/detail-demande/detail-demande.component';
 import { FormRDVComponent } from './mentor/form-rdv/form-rdv.component';
+import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
+import { AccueilMenteeComponent } from './mente/accueil-mentee/accueil-mentee.component';
 import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
 
 
@@ -30,7 +32,7 @@ import { ServicesComponent } from './portail/services/services.component'; //MOI
 import { PortailComponent } from './mente/accueil/accueil.component';
 // import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 // import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
-import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
+
 
 
 export const routes: Routes = [
@@ -56,6 +58,7 @@ export const routes: Routes = [
   { path: 'postforum', component:PostforumComponent},
   { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'forum-mentee', component: ForumMenteeComponent},
+  { path: 'accueilMenteeAuth', component: AccueilMenteeComponent},
 
 
   { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil
@@ -63,8 +66,6 @@ export const routes: Routes = [
   { path: 'user-form/:id', component: UserFormComponent },
   { path: 'assign-permission', component: AssignPermissionComponent },
   { path: 'apropos', component: AproposComponent }, // MOI Route pour l'accueil
-
-
   { path: 'services', component: ServicesComponent }// MOI Route pour l'accueil
 
 
