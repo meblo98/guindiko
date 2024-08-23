@@ -1,0 +1,708 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+
+    margin-left: 20px;     /* Marge à gauche pour chaque section */
+    margin-right: 20px; /* Marge à droite pour chaque section */
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #000 ; /* Couleur principale */
+}
+
+p {
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu .icons {
+    color: #fff;
+    display: flex;
+    align-items: center; /* Aligne les icônes verticalement au centre */
+    border: 3px solid #fff; /* Bordure rouge */
+    width: 100px;
+    text-align: center;
+    margin-left: 20%;
+    justify-content: center; 
+    transition: background-color 0.3s, color 0.3s; /* Transition douce pour le hover */
+}
+
+.menu .icons:hover {
+    background-color: #fff; /* Change la couleur de fond en blanc au hover */
+    color: #000; /* Change la couleur du texte en noir au hover */
+}
+
+
+/* Header */
+header {
+    background-color: #36494E;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+/* Logo à gauche */
+.logo {
+    margin-left: 60px;
+    width: 120px;
+    
+}
+
+/* Conteneur pour les liens et les icônes */
+.menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Prend tout l'espace restant entre le logo et les icônes */
+    justify-content: space-between;
+}
+
+.menu nav {
+    flex-grow: 1; /* Prend tout l'espace possible pour centrer les liens */
+    display: flex;
+    justify-content: center; /* Centre les liens horizontalement */
+    align-items: center;
+    padding-left: 18%;
+}
+
+.menu nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.menu nav ul li {
+    margin-right: 40px;
+ 
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    
+}
+
+.menu .icons {
+    
+    display: flex;
+    align-items: center; /* Aligne les icônes sur la même ligne */
+}
+
+.menu .icons img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+
+
+
+
+/* Hero Section Banniere*/
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 70px 30px;
+    background-color: #F4F4F4;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.herostrong {
+    font-size: 41px;
+    margin-bottom: 600%;
+    
+}
+
+.hero p {
+    font-size: 25px;
+    margin-bottom: 90px;
+    padding-left: 29px;
+}
+
+.hero .btn {
+    background-color: #D2B48C;
+    color: #fff;
+    padding: 50px 80px;
+    border: 2px;
+    border-radius: 8%;
+    cursor: pointer;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+    width: 300%;
+}
+
+.hero-image img {
+    opacity: 835%;
+    border-radius: 43px;
+    width: 900%;
+    height: auto;
+    object-fit: cover;
+    max-width: 770px;
+}
+/* Optionnel: ajouter un effet de zoom au survol */
+.hero-image:hover img {
+    transform: translate(-20%, -35%) scale(1.3); /* Augmente le zoom et déplace l'image davantage lors du survol */
+}
+
+
+
+
+/* Animation du texte */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.7s ease-in-out forwards, colorShift 3s infinite; /* Animation d'apparition et de changement de couleur */
+    color: #343F69; /* Couleur initiale */
+}
+
+/* Animation pour changer les couleurs automatiquement */
+@keyframes colorShift {
+    
+    50% { color: #36494E; }
+    2% { color: #fff; }
+    4% { color: orangered; }
+    45% { color: #D2B48C; }
+    }
+
+/* Ajustement pour chaque élément enfant */
+.animate-text:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.animate-text:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.animate-text:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.animate-text:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* About Section */
+.about {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about h1{
+    
+    font-size: 350%;
+    color: #333;
+    text-align: left;
+    margin-bottom: 40px;
+    
+}
+.about h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-left: 18px;
+
+}
+
+.about p {
+    padding-left: 38px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.about .btn {
+    background-color: #D2B48C;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.about-image {
+    flex: -1;
+    text-align: right;
+    width: 31%;
+    height: 120%;
+}
+
+
+
+
+/* Arc en Ciel */
+.arc-en-ciel {
+    padding: 50px 20px;
+    background-color: #F4F4F4;
+}
+
+.arc-en-ciel h1 {
+    font-size: 350%;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+
+.arc-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.arc {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 200px; /* Flex-grow and basis to handle responsive design */
+    text-align: center;
+    border-radius: 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.arc-icon {
+    font-size: 40px;
+    color: #36494E;
+    margin-bottom: 10px;
+}
+
+.arc p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.btn-savoir-plus {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #D2B48C;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btn-savoir-plus:hover {
+    background-color: #2b345b;
+}
+
+
+
+
+
+.arc:hover {
+    background-color: #D2B48C;
+    color: #fff; /* Adjust text color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: increase shadow on hover */
+}
+
+.arc:hover .arc-icon {
+    color: #fff; /* Adjust icon color on hover */
+}
+
+
+
+
+/* Section Témoignages */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials h1 {
+    font-size: 350%;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.testimonial-container {
+    position: relative;
+}
+
+.testimonial-card {
+    display: none; /* Masquer par défaut */
+    background-color: #fff;
+    padding: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px; /* Largeur maximale de la carte */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card.active {
+    display: block; /* Afficher seulement la carte active */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card p {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.testimonial-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #36494E;
+}
+
+.testimonial-card span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #36494E;
+    margin-top: 10px;
+}
+
+.testimonial-next {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #D2B48C;
+    color: #fff;
+    border: 2px;
+    border-radius: 5%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.testimonial-next:hover {
+    background-color: #2b345b;
+}
+
+
+
+
+
+
+/* Partners and Statistics */
+.partners, .statistics {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.partners img, .statistics .stat-card {
+    width: 100px;
+    margin: 0 10px;
+}
+
+.statistics h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    display: inline-block;
+    background-color: #36494E;
+    color: #fff;
+    padding: 20px;
+    margin: 0 10px;
+}
+
+
+
+
+/* Styles pour la section des statistiques */
+.statistics {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #F4F4F4;
+}
+
+.statistics h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #36494E;
+}
+
+.statistics p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: #D2B48C;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 29px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Ligne pointillée entre les cercles */
+.dotted-line {
+    width: 100px;
+    border-top: 5px dotted #333;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.stat-item:nth-child(2) .dotted-line,
+.stat-item:nth-child(4) .dotted-line {
+    display: none; /* Cache la ligne pour les éléments 2 et 4 (pour le premier et dernier cercle) */
+}
+
+.stat-item:nth-child(1) .dotted-line {
+    left: 100px; /* Aligne la ligne pointillée après le premier cercle */
+}
+
+.stat-item:nth-child(3) .dotted-line {
+    right: 100px; /* Aligne la ligne pointillée avant le dernier cercle */
+}
+
+
+
+
+
+
+
+
+
+/* Contact Section Styles */
+.contact-section {
+    opacity: 73%;
+    background-color: #f4f4f4; /* Couleur de fond légère en contraste */
+    
+    /* background-image: url('assets/images/imageba.png');  */
+     /* Assurez-vous que le chemin est correct */ 
+
+
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image dans la section */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    padding: 40px 20px;
+    text-align: center;
+    color: white; /* Assure que le texte est lisible sur l'image de fond */
+}
+
+
+/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+input[type="submit"],
+input[type="reset"] {
+    background-color: #D2B48C;
+    color: #fff; /* Texte en blanc */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #343F69;
+}
+
+
+
+/* Applique l'animation de clignotement à tout le conteneur lors du focus sur le formulaire */
+div:focus-within {
+    animation: blink 10s ease-in-out; /* Animation qui dure 5 secondes */
+    outline: none;
+}
+
+/* Définir l'animation de clignotement */
+@keyframes blink {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    20%, 40%, 60%, 80% { 
+        transform: scale(1.05); 
+    }
+}
+
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #36494E;
+    color: white;
+    padding: 30px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: flex-end; /* Aligns the links to the right */
+    flex: 1;
+}
+
+.footer-nav a {
+    color: white;
+    margin-left: 15px; /* Horizontal spacing between links */
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end; /* Aligns the icons to the right */
+}
+
+.social-icons a {
+    color: white;
+    margin-left: 15px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer-separator {
+    height: 1px;
+    background-color: white;
+    margin: 20px 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: left;
+}
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero, .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image, .about-image {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .services .service-cards {
+        flex-direction: column;
+    }
+
+    .service-card {
+        margin-bottom: 20px;
+    }
+
+    header .menu nav ul {
+        flex-direction: column;
+    }
+
+    header .menu nav ul li {
+        margin: 10px 0;
+    }
+}
+
+
+
