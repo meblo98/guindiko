@@ -15,25 +15,7 @@ body {
   color: #D2B48C;
 }
 
-/* .hero-section {
-background-image: url('/assets/PlaceholderImage.png');
-background-size: cover;
-background-position: center;
-background-color: #000000;
-color: white;
-padding: 20px 0;
-text-align: left;
-position: relative;
-height: 600px;
-font-size: 45px;
-}
 
-.hero-section .btn {
-  background-color: #D2B48C;
-  color: #36494E;
-  font-weight: bold;
-  border-radius: 5px;
-} */
 .hero-section {
   background-image: url('/assets/PlaceholderImage.png');
   background-size: cover;
@@ -84,6 +66,7 @@ font-size: 45px;
 .benefits-section img {
   height: 80px;
   margin-bottom: 20px;
+  margin-left: 100px;
 }
 
 .benefits-section h4 {
