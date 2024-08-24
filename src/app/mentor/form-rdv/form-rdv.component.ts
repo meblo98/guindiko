@@ -48,7 +48,7 @@ export class FormRDVComponent {
   loadMentes(): void {
     this.mentorService.getAcceptedRequestsForMentor().subscribe({
       next: (response) => {
-        this.mentes = response; // Assurez-vous que 'mentes' est bien le nom de la clé
+        this.mentes = response.mente; // Assurez-vous que 'mentes' est bien le nom de la clé
         console.log('Mentes:', this.mentes);
       },
       error: (error) => {

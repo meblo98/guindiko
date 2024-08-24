@@ -9,15 +9,17 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Mente Nom</th>
-          <th>Mente Email</th>
+          <th>Nom complet</th>
+          <th>Email</th>
+          <th>Telephone</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let demande of demandesAcceptees">
           <td>{{ demande.id }}</td>
-          <td>{{ demande.mente.nom }}</td>
-          <td>{{ demande.mente.user.email }}</td>
+          <td>{{ demande.user.prenom }} {{ demande.user.nom }}</td>
+          <td>{{ demande.user.email }}</td>
+          <td>{{ demande.user.numeroTelephone }}</td>
         </tr>
       </tbody>
     </table>

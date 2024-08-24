@@ -21,7 +21,7 @@ export class ListeMenteAccepteComponent implements OnInit {
     // Récupération des demandes de mentorat acceptées
     this.mentorService.getAcceptedRequestsForMentor().subscribe({
       next: (response) => {
-        this.demandesAcceptees = response;
+        this.demandesAcceptees = response.mente;
         console.log('Demandes acceptées:', this.demandesAcceptees);
       },
       error: (error) => {
