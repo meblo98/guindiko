@@ -44,8 +44,9 @@
           <p> {{ requestDetails.mente.motivation }}</p>
       </div>
       <div class="diplome">
-        <button type="button" class="btn btn-success">Accepté</button>
-        <button type="button" class="btn btn-danger">Refusé</button>
+        <!-- Accept and Reject buttons -->
+  <button (click)="handleMentorshipRequest('accept')" class="btn btn-success mx-2">Accepter</button>
+  <button (click)="handleMentorshipRequest('reject')" class="btn btn-danger">Refuser</button>
       </div>
       </div>
       <div *ngIf="!requestDetails">

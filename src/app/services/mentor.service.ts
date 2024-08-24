@@ -55,6 +55,26 @@ getMentorshipRequestById(id: number): Observable<any> {
   return this.http.get(`${apiUrl}/demandes/${id}`, { headers });
 }
 
+// mentor.service.ts
+updateMentorshipRequest(id: number, data: any): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.put(`${apiUrl}/demandes/${id}`, data, { headers });
+}
+
+getAcceptedRequestsForMentor(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.get(`${apiUrl}/demandes-acceptee`, { headers });
+}
+
+
    // Méthode pour l'inscription des mentors
    registerMentor(
     nom: string,
