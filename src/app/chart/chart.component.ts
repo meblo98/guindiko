@@ -1,37 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartData } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import { DataService } from '../services/dataservice.service';
-
+import { CommonModule } from '@angular/common';
+import { CanvasJS, CanvasJSAngularChartsModule, CanvasJSChart } from '@canvasjs/angular-charts';
 @Component({
   selector: 'app-chart',
   standalone: true,
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, CanvasJSAngularChartsModule, CommonModule],
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
-export class ChartComponent implements OnInit {
-  public barChartOptions: ChartOptions<'bar'> = {
-    responsive: true,
+export class ChartComponent {
+
+  chartOptions = {
+    title: {
+      text: 'Les demandes mensuelles',
+    },
+    theme: 'light2',
+    animationEnabled: true,
+    exportEnabled: true,
+    axisY: {
+      includeZero: true,
+      valueFormatString: '#,##0k',
+    },
+    data: [
+      {
+        type: 'column', //change type to bar, line, area, pie, etc
+        yValueFormatString: '#,##0k',
+        color: '#01b8aa',
+        dataPoints: [
+          { label: 'Jan', y: 172 },
+          { label: 'Fev', y: 189 },
+          { label: 'Mar', y: 201 },
+          { label: 'Avr', y: 240 },
+          { label: 'Mai', y: 166 },
+          { label: 'Jui', y: 196 },
+          { label: 'Jul', y: 218 },
+          { label: 'Aut', y: 167 },
+          { label: 'Sep', y: 175 },
+          { label: 'Oct', y: 152 },
+          { label: 'Nov', y: 156 },
+          { label: 'Dec', y: 164 },
+        ],
+      },
+    ],
   };
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
 
-  // Use ChartData type to encapsulate labels and datasets
-  public barChartData: ChartData<'bar'> = {
-    labels: [], // Initialize with an empty array
-    datasets: [
-      { data: [], label: 'Statistiques' } // Initialize dataset
-    ]
-  };
 
-  constructor(private dataService: DataService) {}
-
-  ngOnInit(): void {
-    // this.dataService.getData().subscribe((data: any) => {
-    //   // Fill the labels and datasets correctly
-    //   this.barChartData.labels = data.labels;
-    //   this.barChartData.datasets[0].data = data.values;
-    // });
-  }
 }
