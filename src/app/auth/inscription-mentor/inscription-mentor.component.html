@@ -1,79 +1,86 @@
-<!-- <form [formGroup]="mentorForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="nom">Nom</label>
-    <input id="nom" formControlName="nom" />
-    <div *ngIf="f.nom.invalid && (f.nom.dirty || f.nom.touched)">
-      <div *ngIf="f.nom.errors?.required">Le nom est requis.</div>
+
+<div class="mt-5 mx-5">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+          <div class="mb-3">
+            <label for="role" class="form-label">Rôle</label>
+            <select class="form-select" id="role" name="role" ngModel (change)="onRoleChange($event)" required>
+              <option value="mentor">Mentor</option>
+              <option value="menti">Menti</option>
+            </select>
+          </div>
+
+          <!-- Champs Nom et Prénom sur une ligne -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="nom" name="nom" ngModel required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="prenom" class="form-label">Prénom</label>
+              <input type="text" class="form-control" id="prenom" name="prenom" ngModel required>
+            </div>
+          </div>
+
+          <!-- Champs Numéro de Téléphone et Email sur une ligne -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="numeroTelephone" class="form-label">Numéro de Téléphone</label>
+              <input type="text" class="form-control" id="numeroTelephone" name="numeroTelephone" ngModel required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" ngModel required>
+            </div>
+          </div>
+
+          <!-- Champs Mot de Passe et Confirmation sur une ligne -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <input type="password" class="form-control" id="password" name="password" ngModel required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+              <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" ngModel required>
+            </div>
+          </div>
+
+          <!-- Champs spécifiques au rôle Mentor -->
+          <div *ngIf="selectedRole === 'mentor'" class="row">
+            <div class="col-md-6 mb-3">
+              <label for="domaineExpertise" class="form-label">Domaine d'Expertise</label>
+              <input type="text" class="form-control" id="domaineExpertise" name="domaineExpertise" ngModel>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="experience" class="form-label">Expérience</label>
+              <input type="text" class="form-control" id="experience" name="experience" ngModel>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="disponibilite" class="form-label">Disponibilité</label>
+              <input type="text" class="form-control" id="disponibilite" name="disponibilite" ngModel>
+            </div>
+          </div>
+
+          <!-- Champs spécifiques au rôle Menti -->
+          <div *ngIf="selectedRole === 'menti'" class="row">
+            <div class="col-md-6 mb-3">
+              <label for="motivation" class="form-label">Motivation</label>
+              <input type="text" class="form-control" id="motivation" name="motivation" ngModel>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="NiveauEtude" class="form-label">Niveau d'Étude</label>
+              <input type="text" class="form-control" id="NiveauEtude" name="NiveauEtude" ngModel>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+
     </div>
   </div>
-
-  <div>
-    <label for="prenom">Prénom</label>
-    <input id="prenom" formControlName="prenom" />
-    <div *ngIf="f.prenom.invalid && (f.prenom.dirty || f.prenom.touched)">
-      <div *ngIf="f.prenom.errors?.required">Le prénom est requis.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="numeroTelephone">Numéro de Téléphone</label>
-    <input id="numeroTelephone" formControlName="numeroTelephone" />
-    <div *ngIf="f.numeroTelephone.invalid && (f.numeroTelephone.dirty || f.numeroTelephone.touched)">
-      <div *ngIf="f.numeroTelephone.errors?.required">Le numéro de téléphone est requis.</div>
-      <div *ngIf="f.numeroTelephone.errors?.pattern">Le numéro de téléphone est invalide.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="email">Email</label>
-    <input id="email" formControlName="email" />
-    <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
-      <div *ngIf="f.email.errors?.required">L'email est requis.</div>
-      <div *ngIf="f.email.errors?.email">L'email est invalide.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="password">Mot de Passe</label>
-    <input id="password" type="password" formControlName="password" />
-    <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
-      <div *ngIf="f.password.errors?.required">Le mot de passe est requis.</div>
-      <div *ngIf="f.password.errors?.minlength">Le mot de passe doit contenir au moins 6 caractères.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="password_confirmation">Confirmation du Mot de Passe</label>
-    <input id="password_confirmation" type="password" formControlName="password_confirmation" />
-    <div *ngIf="mentorForm.errors?.mismatch && (f.password_confirmation.dirty || f.password_confirmation.touched)">
-      Les mots de passe ne correspondent pas.
-    </div>
-  </div>
-
-  <div>
-    <label for="domaineExpertise">Domaine d'Expertise</label>
-    <input id="domaineExpertise" formControlName="domaineExpertise" />
-    <div *ngIf="f.domaineExpertise.invalid && (f.domaineExpertise.dirty || f.domaineExpertise.touched)">
-      <div *ngIf="f.domaineExpertise.errors?.required">Le domaine d'expertise est requis.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="experience">Expérience</label>
-    <input id="experience" formControlName="experience" />
-    <div *ngIf="f.experience.invalid && (f.experience.dirty || f.experience.touched)">
-      <div *ngIf="f.experience.errors?.required">L'expérience est requise.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="disponibilite">Disponibilité</label>
-    <input id="disponibilite" formControlName="disponibilite" />
-    <div *ngIf="f.disponibilite.invalid && (f.disponibilite.dirty || f.disponibilite.touched)">
-      <div *ngIf="f.disponibilite.errors?.required">La disponibilité est requise.</div>
-    </div>
-  </div>
-
-  <button type="submit" [disabled]="isSubmitting">S'inscrire</button>
-  <div *ngIf="errorMessage">{{ errorMessage }}</div>
-</form> -->
+</div>

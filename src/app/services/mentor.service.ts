@@ -84,8 +84,7 @@ getAcceptedRequestsForMentor(): Observable<any> {
     password: string,
     domaineExpertise: string,
     experience: string,
-    disponibilite: string,
-    password_confirmation: string
+    disponibilite: string
   ): Observable<any> {
     const body = {
       nom,
@@ -95,8 +94,7 @@ getAcceptedRequestsForMentor(): Observable<any> {
       password,
       domaineExpertise,
       experience,
-      disponibilite,
-      password_confirmation
+      disponibilite
     };
 
     return this.http.post(`${apiUrl}/mentors`, body).pipe(
@@ -105,9 +103,15 @@ getAcceptedRequestsForMentor(): Observable<any> {
   }
 
   private handleError(error: any): Observable<never> {
-    // Gérer l'erreur de manière appropriée ici
-    console.error('Une erreur est survenue', error);
-    return throwError(() => new Error('Une erreur est survenue. Veuillez réessayer plus tard.'));
+    let errorMessage = 'Une erreur est survenue';
+    if (error.error instanceof ErrorEvent) {
+      // Erreur côté client
+      errorMessage = `Erreur : ${error.error.message}`;
+    } else {
+      // Erreur côté serveur
+      errorMessage = `Code d'erreur : ${error.status}\nMessage : ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 
 }
