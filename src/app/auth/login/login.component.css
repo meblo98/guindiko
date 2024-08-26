@@ -68,7 +68,7 @@ a:hover {
 }
 .image-section {
     flex: 1;
-    /* background-image: url('assets/images/image2.jpg'); */
+    background-image: url('/assets/image/image (2).jpg'); /* Assurez-vous que l'URL est correcte */
     background-size: cover;
     background-position: center;
 }
