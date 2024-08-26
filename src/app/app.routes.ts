@@ -38,6 +38,7 @@ import { ServicesComponent } from './portail/services/services.component'; //MOI
             import { AuthGuard } from './auth.guard';
             import { RoleGuard } from './role.guard';
 import { PortailComponent } from './mente/accueil/accueil.component';
+import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
                        
 
 
