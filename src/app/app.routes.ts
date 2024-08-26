@@ -53,7 +53,7 @@ export const routes: Routes = [
   { path: 'ajout-rdv', component: FormRDVComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
   { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
   
-  { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentee' }},
+  { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
   { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentee' }},
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent }, 
