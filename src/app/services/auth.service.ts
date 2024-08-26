@@ -162,9 +162,9 @@ export class AuthService {
   }
 
   getRole(): string | null {
-    // Cette méthode doit retourner le rôle de l'utilisateur
-    // Assurez-vous que le rôle est bien stocké dans le localStorage ou une autre source
-    return localStorage.getItem('role');
+    // Récupérer les rôles depuis le localStorage
+    const roles = JSON.parse(localStorage.getItem('roles') || '[]');
+    return roles.length > 0 ? roles[0] : null; // Suppose que l'utilisateur a un seul rôle principal
   }
 
   hasRole(role: string): boolean {
