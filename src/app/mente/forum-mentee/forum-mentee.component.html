@@ -62,7 +62,7 @@
 <div class="channels-section">
   <h2>Abonnez-vous à nos Canaux</h2>
   <div class="channels-container">
-      <div class="channel-card">
+      <!-- <div class="channel-card">
           <div class="channel-image-container">
               <img src="/assets/info.png" alt="Informatique">
               <div class="channel-badge">Informatique</div>
@@ -76,9 +76,33 @@
           <div class="channel-content">
               <p>Ce Canal dispose des Post concernant des sujets liés à l'Informatique. Et ces posts sont commentées par des milliers de participants. Abonnez-vous !</p>
           </div>
-      </div>
+      </div> -->
       <!-- Répétez pour les autres cartes -->
-      <div class="channel-card">
+
+      <div class="channels-section">
+        <h2>Nos Forums</h2>
+        <div class="channels-container">
+          <div class="channel-card" *ngFor="let forum of forums">
+            <div class="channel-image-container">
+              <img src="/assets/default-forum-image.png" alt="{{ forum.nomForum }}">
+              <div class="channel-badge">{{ forum.nomForum }}</div>
+              <div class="post-badge">{{ forum.postCount }} Posts</div>
+              <div class="view-icon">
+                <a [routerLink]="['/post-forum', forum.id]">
+                  <i class="fas fa-eye"></i>
+                </a>
+              </div>
+            </div>
+            <div class="channel-content">
+              <p>{{ forum.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="channel-card">
         <div class="channel-image-container">
             <img src="/assets/archi.png" alt="Architecture">
             <div class="channel-badge">Architecture</div>
@@ -160,7 +184,7 @@
 
 
   </div>
-</div>
+</div> -->
 
 
 

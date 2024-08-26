@@ -33,7 +33,7 @@ export class LoginComponent {
         } else if (this.authService.hasRole('mentor')) {
           this.router.navigate(['/dashboard-mentor']);
         } else if (this.authService.hasRole('menti')) {
-          this.router.navigate(['/accueil-mentee']);
+          this.router.navigate(['/accueilMenteeAuth']);
         } else {
           this.errorMessage = "Rôle utilisateur non reconnu.";
         }

@@ -39,10 +39,45 @@ import { PortailComponent } from './mente/accueil/accueil.component';
 
             // import { ForumComponent } from './admin/forum/forum.component'; //moi ici
             // import { CommentaireForumComponent } from './admin/commentaire-forum/commentaire-forum.component'; // Composant pour les commentaires de forums
+
 import { DashboardMentorComponent } from './mentor/dashboard-mentor/dashboard-mentor.component';
 import { ListeRDVMentorComponent } from './mentor/liste-rdv/liste-rdv.component';
 import { ListeMenteAccepteComponent } from './mentor/liste-mente-accepte/liste-mente-accepte.component';
 
+import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
+
+// export const routes: Routes = [
+//   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+//   { path: 'login', component: LoginComponent },
+//   { path: 'inscription-mente', component: InscriptionMenteComponent},
+//   { path: 'inscription-mentor', component: InscriptionMentorComponent},
+
+//   // Routes protégées par AuthGuard
+//   { path: 'dashboard', component: TableauBordComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' } },
+//   { path: 'roles', component: RoleComponent, canActivate: [AuthGuard] },
+//   { path: 'permissions', component: PermissionsComponent, canActivate: [AuthGuard] },
+//   { path: 'user', component: GestionUserComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
+//   { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard] },
+//   { path: 'forum', component: ForumComponent, canActivate: [AuthGuard] },
+//   { path: 'mes-demandes', component: ListeMesDemandesComponent, canActivate: [AuthGuard] },
+//   { path: 'mes-rdv', component: ListeRDVComponent, canActivate: [AuthGuard] },
+//   { path: 'liste-mentor', component: ListeMentorsComponent, canActivate: [AuthGuard] },
+//   { path: 'mentor-rdv', component: ListeRDVMentorComponent, canActivate: [AuthGuard] },
+//   { path: 'mentor-demande', component: ListeDemandesComponent, canActivate: [AuthGuard] },
+//   { path: 'mentor-demande/:id', component: DetailDemandeComponent, canActivate: [AuthGuard] },
+//   { path: 'ajout-rdv', component: FormRDVComponent, canActivate: [AuthGuard] },
+//   { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard] },
+//   { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard] },
+
+//   { path: 'accueil', component: AccueilComponent },
+//   { path: 'accueil-mentee', component: PortailComponent},
+//   { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard] },
+//   { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard] },
+//   { path: 'apropos', component: AproposComponent },
+
+//   { path: 'services', component: ServicesComponent }
+// ];
 export const routes: Routes = [
 { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -86,7 +121,7 @@ export const routes: Routes = [
           { path: 'post-forum/:id', component: PostForumComponent },// Route pour afficher les détails d'un post
 
           { path: 'post-commentaire', component: PostCommentaireComponent },
-          { path: 'post-commentaire/:id', component: PostCommentaireComponent }
+          { path: 'post-commentaire/:id', component: PostCommentaireComponent },
 
 
 
@@ -98,8 +133,34 @@ export const routes: Routes = [
             // { path: 'commentaire-forum/:id', component: CommentaireForumComponent } // Route pour afficher les commentaires d'un post spécifique
 
 
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'inscription-mente', component: InscriptionMenteComponent},
+  { path: 'inscription-mentor', component: InscriptionMentorComponent},
+  { path: 'dashboard', component: TableauBordComponent, canActivate: [AuthGuard]},
+  { path: 'roles', component: RoleComponent, canActivate: [AuthGuard]},
+  { path: 'permissions', component: PermissionsComponent, canActivate: [AuthGuard]},
+  { path: 'user', component: GestionUserComponent, canActivate: [AuthGuard]},
+  { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard]},
+  { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard]},
+  { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard]},
 
+  { path: 'forum', component: ForumComponent, canActivate: [AuthGuard] },
+  { path: 'mes-demandes', component: ListeMesDemandesComponent, canActivate: [AuthGuard] },
+  { path: 'mes-rdv', component: ListeRDVComponent, canActivate: [AuthGuard] },
+  { path: 'liste-mentor', component: ListeMentorsComponent, canActivate: [AuthGuard] },
 
+  { path: 'mentor-rdv', component: ListeRDVMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+  { path: 'mentor-demande', component: ListeDemandesComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+  { path: 'mentor-demande/:id', component: DetailDemandeComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+  { path: 'ajout-rdv', component: FormRDVComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+  { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+
+  { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard] },
+  { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'apropos', component: AproposComponent },
+  { path: 'services', component: ServicesComponent }
 ];
 
 
