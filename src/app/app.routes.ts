@@ -68,8 +68,8 @@ export const routes: Routes = [
   { path: 'roles', component: RoleComponent, canActivate: [AuthGuard]},
   { path: 'permissions', component: PermissionsComponent, canActivate: [AuthGuard]},
   { path: 'user', component: GestionUserComponent, canActivate: [AuthGuard]},
-  { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
-  { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
+  { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard]},
+  { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard]},
   { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard]},
 
   { path: 'forum', component: ForumComponent, canActivate: [AuthGuard] },
