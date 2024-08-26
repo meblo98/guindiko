@@ -5,6 +5,10 @@
     <input class="form-control" id="sujet" formControlName="sujet" type="text" />
   </div>
 
+  <div>
+    <label for="sujet">Date Rendez-vous</label>
+    <input class="form-control" id="date_rendezVous" formControlName="date_rendezVous" type="date" />
+  </div>
   <!-- Type Field (Select) -->
   <div>
     <label for="type">Type</label>
@@ -37,7 +41,7 @@
     <label for="mente">Mente</label>
     <select class="form-control" id="mente" formControlName="mente_id">
       <option *ngFor="let mente of mentes" [value]="mente.id">
-        {{ mente.user.nom }}
+        {{ mente.user.prenom }} {{ mente.user.nom }}
       </option>
     </select>
   </div>

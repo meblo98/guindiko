@@ -31,9 +31,9 @@ export class LoginComponent {
         if (this.authService.hasRole('admin')) {
           this.router.navigate(['/dashboard']);
         } else if (this.authService.hasRole('mentor')) {
-          this.router.navigate(['/mentor-demande']);
-        } else if (this.authService.hasRole('menti')) {
           this.router.navigate(['/dashboard-mentor']);
+        } else if (this.authService.hasRole('menti')) {
+          this.router.navigate(['/accueil-mentee']);
         } else {
           this.errorMessage = "Rôle utilisateur non reconnu.";
         }

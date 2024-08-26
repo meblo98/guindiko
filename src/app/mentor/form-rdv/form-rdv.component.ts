@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MentorService } from '../../services/mentor.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { RdvService } from '../../services/rdv.service';
 
 @Component({
   selector: 'app-form-rdv',
@@ -12,21 +15,27 @@ import { CommonModule } from '@angular/common';
 })
 export class FormRDVComponent {
 
-  rendezVousForm!: FormGroup; // Utilisation de l'opérateur de déclaration d'initialisation
+  rendezVousForm!: FormGroup;
   showLieu = true;
   showLien = false;
   mentes: any[] = [];
 
-  constructor(private fb: FormBuilder, private mentorService: MentorService) {}
+  constructor(
+    private fb: FormBuilder,
+    private mentorService: MentorService,
+    private router: Router,
+    private rendezVousService: RdvService
+  ) {}
 
   ngOnInit(): void {
     this.rendezVousForm = this.fb.group({
-      sujet: [''],
-      type: [''],
+      sujet: ['', Validators.required],
+      type: ['', Validators.required],
+      date_rendezVous: ['', Validators.required],
       lieu: [''],
       lien: [''],
       duree: [''],
-      mente_id: [''],
+      mente_id: ['', Validators.required],
       statut: ['']
     });
 
@@ -35,15 +44,9 @@ export class FormRDVComponent {
 
   onTypeChange(event: any): void {
     const selectedType = event.target.value;
-    if (selectedType === 'présentiel') {
-      this.showLieu = true;
-      this.showLien = false;
-    } else if (selectedType === 'En Ligne') {
-      this.showLieu = false;
-      this.showLien = true;
-    }
+    this.showLieu = selectedType === 'présentiel';
+    this.showLien = selectedType === 'En Ligne';
   }
-
 
   loadMentes(): void {
     this.mentorService.getAcceptedRequestsForMentor().subscribe({
@@ -57,12 +60,35 @@ export class FormRDVComponent {
     });
   }
 
-
   onSubmit(): void {
     if (this.rendezVousForm.valid) {
-      // Handle form submission
-      console.log(this.rendezVousForm.value);
+
+      this.rendezVousService.createRendezVous(this.rendezVousForm.value).subscribe(
+        (response: any) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Votre rendez-vous a été enregistré avec succès',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.rendezVousForm.reset();
+          this.router.navigate(['/mentor-rdv']);
+        },
+        (error: any) => {
+          console.error('Erreur lors de l\'envoi des données :', error);
+          Swal.fire(
+            'Erreur',
+            'Une erreur est survenue lors de l\'enregistrement. Veuillez réessayer.',
+            'error'
+          );
+        }
+      );
+    } else {
+      Swal.fire('Erreur', 'Veuillez remplir tous les champs requis.', 'error');
     }
   }
+
+  
 
 }
