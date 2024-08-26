@@ -77,14 +77,14 @@ export const routes: Routes = [
   { path: 'mes-rdv', component: ListeRDVComponent, canActivate: [AuthGuard] },
   { path: 'liste-mentor', component: ListeMentorsComponent, canActivate: [AuthGuard] },
 
-  { path: 'mentor-rdv', component: ListeRDVMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
-  { path: 'mentor-demande', component: ListeDemandesComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
-  { path: 'mentor-demande/:id', component: DetailDemandeComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
-  { path: 'ajout-rdv', component: FormRDVComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
-  { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
+  { path: 'mentor-rdv', component: ListeRDVMentorComponent, canActivate: [AuthGuard, RoleGuard]},
+  { path: 'mentor-demande', component: ListeDemandesComponent, canActivate: [AuthGuard]},
+  { path: 'mentor-demande/:id', component: DetailDemandeComponent, canActivate: [AuthGuard]},
+  { path: 'ajout-rdv', component: FormRDVComponent, canActivate: [AuthGuard]},
+  { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard]},
   
   { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard] },
-  { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
+  { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard]},
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent }, 
   { path: 'services', component: ServicesComponent }
