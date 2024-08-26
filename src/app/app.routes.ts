@@ -37,6 +37,7 @@ import { ServicesComponent } from './portail/services/services.component'; //MOI
             
             import { AuthGuard } from './auth.guard';
             import { RoleGuard } from './role.guard';
+import { PortailComponent } from './mente/accueil/accueil.component';
                        
 export const routes: Routes = [
 { path: '', redirectTo: '/accueil', pathMatch: 'full' },
@@ -90,6 +91,7 @@ export const routes: Routes = [
   { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
   { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
   { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' }},
+  { path: 'accueil-mentee', component: PortailComponent},
 
 
   { path: 'forum', component: ForumComponent, canActivate: [AuthGuard] },
@@ -145,7 +147,6 @@ export const routes: Routes = [
 //   { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard] },
 
 //   { path: 'accueil', component: AccueilComponent },
-//   { path: 'accueil-mentee', component: PortailComponent},
 //   { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard] },
 //   { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard] },
 //   { path: 'apropos', component: AproposComponent },
