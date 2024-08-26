@@ -1,1 +1,55 @@
-<p>detail-demande works!</p>
+<!--
+    <div class="detail-container" *ngIf="selectedMentorshipRequest">
+        <div class="header">
+            <img src="../assets/images/profile/user-1.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="info">
+                <p><strong>Nom complet:</strong> Awa ba</p>
+                <p><strong>Téléphone:</strong> 77 123 33 90</p>
+                <p><strong>Email:</strong> awa45mail.com</p>
+            </div>
+        </div>
+        <div class="niveau-etude">
+            <h3></h3>
+            <p>Nouvelle bachelière</p>
+        </div>
+        <div class="motivation">
+            <h3>Motivation</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare lacus vel massa congue, quis dapibus purus convallis. Mauris sed justo eget sapien ultricies facilisis sit amet consectetur leo. Nullam non elit ut lacus euismod auctor...</p>
+        </div>
+        <div class="diplome">
+          <button type="button" class="btn btn-success">Accepté</button>
+          <button type="button" class="btn btn-danger">Refusé</button>
+        </div>
+    </div> -->
+    <div class="modal-header">
+      <h5 class="modal-title">Détails de la Demande de Mentorat</h5>
+      <button type="button" class="btn-close" aria-label="Close" class="btn-close" ></button>
+    </div>
+    <div class="modal-body">
+      <div class="detail-container" *ngIf="requestDetails">
+        <div class="header">
+          <img src="../assets/images/profile/user-1.jpg" alt="Profile Picture" class="profile-pic">
+          <div class="info">
+              <p><strong>Nom complet:</strong>  {{ requestDetails.user.prenom }} {{ requestDetails.user.nom }}</p>
+              <p><strong>Téléphone:</strong>  {{ requestDetails.user.numeroTelephone }}</p>
+              <p><strong>Email:</strong>  {{ requestDetails.user.email }}</p>
+          </div>
+      </div>
+      <div class="niveau-etude">
+          <h3>Niveau d'etude</h3>
+          <p>{{ requestDetails.mente.NiveauEtude }}</p>
+      </div>
+      <div class="motivation">
+          <h3>Motivation</h3>
+          <p> {{ requestDetails.mente.motivation }}</p>
+      </div>
+      <div class="diplome">
+        <!-- Accept and Reject buttons -->
+  <button (click)="handleMentorshipRequest('accept')" class="btn btn-success mx-2">Accepter</button>
+  <button (click)="handleMentorshipRequest('reject')" class="btn btn-danger">Refuser</button>
+      </div>
+      </div>
+      <div *ngIf="!requestDetails">
+        <p>Aucun détail trouvé.</p>
+      </div>
+    </div>
