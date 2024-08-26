@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MentorService } from '../../services/mentor.service';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-demande',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgbModule],
   templateUrl: './detail-demande.component.html',
   styleUrl: './detail-demande.component.css',
 })
@@ -35,4 +36,19 @@ export class DetailDemandeComponent implements OnInit {
       }
     });
   }
+
+  handleMentorshipRequest(action: string) {
+    const status = action === 'accept' ? 'Acceptée' : 'Refusée';
+
+    this.mentorService.updateMentorshipRequest(this.requestId, { statut: status })
+      .subscribe({
+        next: (response) => {
+          console.log('Demande mise à jour:', response);
+        },
+        error: (error) => {
+          console.error('Erreur lors de la mise à jour de la demande:', error);
+        }
+      });
+  }
+
 }

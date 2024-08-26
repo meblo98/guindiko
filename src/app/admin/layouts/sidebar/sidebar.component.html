@@ -19,19 +19,19 @@ data-sidebar-position="fixed" data-header-position="fixed">
           <span class="hide-menu">Menu</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./index.html" aria-expanded="false">
+          <a class="sidebar-link" [routerLink]="['/dashboard']" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
             </span>
             <span class="hide-menu">Tableau de bord</span>
           </a>
-          <a class="sidebar-link" href="./index.html" aria-expanded="false">
+          <a class="sidebar-link" [routerLink]="['/user']" aria-expanded="false">
             <span>
               <img src="../assets/svg/check-square.svg" alt="">
             </span>
             <span class="hide-menu">Gestion des utilisateurs</span>
           </a>
-          <a class="sidebar-link" href="./index.html" aria-expanded="false">
+          <a class="sidebar-link" [routerLink]="['/forum']" aria-expanded="false">
             <span>
               <img src="../assets/svg/chat-dots.svg" alt="">
               <!-- <i class="ti ti-layout-dashboard"></i> -->

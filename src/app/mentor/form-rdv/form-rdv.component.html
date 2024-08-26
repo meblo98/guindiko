@@ -1,1 +1,53 @@
-<p>form-rdv works!</p>
+<form [formGroup]="rendezVousForm" (ngSubmit)="onSubmit()">
+  <!-- Sujet Field -->
+  <div>
+    <label for="sujet">Sujet</label>
+    <input class="form-control" id="sujet" formControlName="sujet" type="text" />
+  </div>
+
+  <div>
+    <label for="sujet">Date Rendez-vous</label>
+    <input class="form-control" id="date_rendezVous" formControlName="date_rendezVous" type="date" />
+  </div>
+  <!-- Type Field (Select) -->
+  <div>
+    <label for="type">Type</label>
+    <select class="form-control" id="type" formControlName="type" (change)="onTypeChange($event)">
+      <option value="présentiel">Présentiel</option>
+      <option value="En Ligne">En ligne</option>
+    </select>
+  </div>
+
+  <!-- Lieu Field -->
+  <div *ngIf="showLieu">
+    <label for="lieu">Lieu</label>
+    <input class="form-control" id="lieu" formControlName="lieu" type="text" />
+  </div>
+
+  <!-- Lien Field -->
+  <div *ngIf="showLien">
+    <label for="lien">Lien</label>
+    <input class="form-control" id="lien" formControlName="lien" type="text" />
+  </div>
+
+  <!-- Durée Field -->
+  <div>
+    <label for="duree">Durée</label>
+    <input class="form-control" id="duree" formControlName="duree" type="text" />
+  </div>
+
+  <!-- Mente Select Field -->
+  <div>
+    <label for="mente">Mente</label>
+    <select class="form-control" id="mente" formControlName="mente_id">
+      <option *ngFor="let mente of mentes" [value]="mente.id">
+        {{ mente.user.prenom }} {{ mente.user.nom }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Submit Button -->
+  <div>
+    <button class="btn btn-dark-light mt-2" type="submit">Créer Rendez-Vous</button>
+  </div>
+</form>

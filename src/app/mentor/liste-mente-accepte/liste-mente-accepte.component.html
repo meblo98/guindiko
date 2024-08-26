@@ -1,0 +1,31 @@
+<app-navbar-mentor></app-navbar-mentor>
+
+
+<div class="container mt-5">
+  <h2>Demandes de Mentorat Acceptées</h2>
+  <hr class="m-3">
+  <div *ngIf="demandesAcceptees.length > 0; else noRequests">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom complet</th>
+          <th>Email</th>
+          <th>Telephone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demande of demandesAcceptees">
+          <td>{{ demande.id }}</td>
+          <td>{{ demande.user.prenom }} {{ demande.user.nom }}</td>
+          <td>{{ demande.user.email }}</td>
+          <td>{{ demande.user.numeroTelephone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noRequests>
+    <p>Aucune demande acceptée trouvée.</p>
+  </ng-template>
+</div>

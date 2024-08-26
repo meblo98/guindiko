@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] // corrected to "styleUrls"
 })
@@ -31,9 +31,9 @@ export class LoginComponent {
         if (this.authService.hasRole('admin')) {
           this.router.navigate(['/dashboard']);
         } else if (this.authService.hasRole('mentor')) {
-          this.router.navigate(['/mentor-demande']);
+          this.router.navigate(['/dashboard-mentor']);
         } else if (this.authService.hasRole('menti')) {
-          this.router.navigate(['/liste-mentor']);
+          this.router.navigate(['/accueil-mentee']);
         } else {
           this.errorMessage = "Rôle utilisateur non reconnu.";
         }

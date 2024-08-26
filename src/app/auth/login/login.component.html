@@ -27,7 +27,7 @@
                 <div *ngIf="email.invalid && email.touched" class="text-danger">
                     L'adresse email est obligatoire et doit être valide.
                 </div>
-                
+
                 <!-- Champ Mot de Passe -->
                 <label for="password">Mot de passe</label>
                 <input
@@ -44,21 +44,20 @@
                 <div *ngIf="password.invalid && password.touched" class="text-danger">
                     Le mot de passe est obligatoire et doit contenir au moins 6 caractères.
                 </div>
-                
+
                 <!-- Bouton de Connexion -->
                 <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">
                     Connecter
                 </button>
-                
+
                 <!-- Message d'erreur général -->
                 <div *ngIf="errorMessage" class="text-danger mt-3">
                     {{ errorMessage }}
                 </div>
             </form>
-            <p>Vous n'avez pas de compte? <a href="#">Créer un compte.</a></p>
+            <p>Vous n'avez pas de compte? <a [routerLink]="['/inscription-mentor']">Créer un compte.</a></p>
         </div>
         <div class="image-section">
-            <img src="assets/images/image2.jpg" alt="User">  
         </div>
     </div>
 </body>

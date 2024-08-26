@@ -39,6 +39,9 @@ import { PortailComponent } from './mente/accueil/accueil.component';
 
             // import { ForumComponent } from './admin/forum/forum.component'; //moi ici
             // import { CommentaireForumComponent } from './admin/commentaire-forum/commentaire-forum.component'; // Composant pour les commentaires de forums
+import { DashboardMentorComponent } from './mentor/dashboard-mentor/dashboard-mentor.component';
+import { ListeRDVMentorComponent } from './mentor/liste-rdv/liste-rdv.component';
+import { ListeMenteAccepteComponent } from './mentor/liste-mente-accepte/liste-mente-accepte.component';
 
 export const routes: Routes = [
 { path: '', redirectTo: '/accueil', pathMatch: 'full' },
@@ -56,7 +59,7 @@ export const routes: Routes = [
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
   { path: 'liste-mentor', component: ListeMentorsComponent},
-  { path: 'mentor-rdv', component: ListeRDVComponent},
+  { path: 'mentor-rdv', component: ListeRDVMentorComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
   { path: 'ajout-rdv', component: FormRDVComponent},
@@ -64,6 +67,8 @@ export const routes: Routes = [
   { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'forum-mentee', component: ForumMenteeComponent},
   { path: 'accueilMenteeAuth', component: AccueilMenteeComponent},
+  { path: 'dashboard-mentor', component: DashboardMentorComponent},
+  { path: 'liste-mente', component: ListeMenteAccepteComponent},
 
 
   { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil
