@@ -4,7 +4,8 @@ body {
 }
 
 .navbar {
-  background-color: #31287C;
+  background-color: #36494E
+  ;
 }
 
 .navbar-brand,
@@ -13,21 +14,25 @@ body {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #F6A500;
+  color: #D2B48C
+  ;
 }
 
 .bg-primary {
-  background-color: #31287C !important;
+  background-color: #36494E
+   !important;
 }
 
 .text-primary {
-  color: #31287C !important;
+  color: #36494E
+   !important;
 }
 
 .btn-warning {
-  background-color: #F6A500;
+  background-color: #D2B48C
+  ;
   border: none;
-  border-radius: 0 50px 0 50px;
+  border-radius: 10px;
 }
 
 .btn-warning:hover {
@@ -42,7 +47,8 @@ body {
 }
 
 .card-img-top {
-  border-bottom: 5px solid #F6A500;
+  border-bottom: 5px solid #D2B48C
+  ;
 }
 
 .card-body {
@@ -96,12 +102,15 @@ body {
 
 /* Pagination styles */
 .pagination .page-item.active .page-link {
-  background-color: #F6A500;
-  border-color: #F6A500;
+  background-color: #D2B48C
+  ;
+  border-color: #D2B48C
+  ;
 }
 
 .pagination .page-link {
-  color: #31287C;
+  color: #36494E
+  ;
   border: none;
 }
 
@@ -112,11 +121,13 @@ body {
 
 /* Footer styles */
 footer {
-  background-color: #31287C;
+  background-color: #36494E
+  ;
 }
 
 footer .text-warning {
-  color: #F6A500 !important;
+  color: #D2B48C
+   !important;
 }
 
 footer .social-icons i {
@@ -134,10 +145,12 @@ footer .nav-link {
 }
 
 footer .nav-link:hover {
-  color: #F6A500;
+  color: #D2B48C
+  ;
 }
 
 footer hr {
   margin: 1rem 0;
-  border-top: 1px solid #F6A500;
+  border-top: 1px solid #D2B48C
+  ;
 }

@@ -77,30 +77,25 @@
               <p>Ce Canal dispose des Post concernant des sujets liés à l'Informatique. Et ces posts sont commentées par des milliers de participants. Abonnez-vous !</p>
           </div>
       </div> -->
-      <!-- Répétez pour les autres cartes -->
-
-      <div class="channels-section">
-        <h2>Nos Forums</h2>
-        <div class="channels-container">
-          <div class="channel-card" *ngFor="let forum of forums">
-            <div class="channel-image-container">
-              <img src="/assets/default-forum-image.png" alt="{{ forum.nomForum }}">
-              <div class="channel-badge">{{ forum.nomForum }}</div>
-              <div class="post-badge">{{ forum.postCount }} Posts</div>
-              <div class="view-icon">
-                <a [routerLink]="['/post-forum', forum.id]">
-                  <i class="fas fa-eye"></i>
-                </a>
-              </div>
+      <div class="channels-container">
+        <div class="channel-card" *ngFor="let forum of forums">
+          <div class="channel-image-container">
+            <img src="/assets/archi.png" alt="Architecture" alt="{{ forum.nomForum }}">
+            <div class="post-badge">{{ forum.nbPost }} Posts</div>
+            <div class="channel-badge">{{ forum.nomForum }}</div>
+            <div class="view-icon">
+              <a [routerLink]="['/postforum', forum.id]">
+                <i class="fas fa-eye"></i>
+              </a>
+              <!-- [routerLink]="['/post-forum', forum.id]" ; <img src="assets/comm.png" alt="Communication">;  <img src="/assets/management.png" alt="Management">;  <img src="/assets/agri.png" alt="Agriculture"> -->
             </div>
-            <div class="channel-content">
-              <p>{{ forum.description }}</p>
-            </div>
+          </div>
+          <div class="channel-content">
+            <p>{{ forum.sujet }}</p>
           </div>
         </div>
       </div>
-
-
+      <!-- Répétez pour les autres cartes -->
 
       <!-- <div class="channel-card">
         <div class="channel-image-container">

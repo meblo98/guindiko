@@ -1,29 +1,54 @@
-import { Component } from '@angular/core';
-import { ForumService } from '../../services/forum.service'; // Chemin correct vers le service
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { ForumMenteeService } from './../../services/forum-mentee.service';
+import { PostForumService } from './../../services/postforum.service';
 
 @Component({
   selector: 'app-forum-mentee',
   standalone: true,
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './forum-mentee.component.html',
-  styleUrl: './forum-mentee.component.css'
+  styleUrls: ['./forum-mentee.component.css']
 })
-export class ForumMenteeComponent {
-  forums: any[] = []; // Tableau pour stocker les forums
+export class ForumMenteeComponent implements OnInit {
+  forums: any[] = [];
+  selectedForumPosts: any[] = [];
+  selectedForumId: number | null = null;
 
-  constructor(private forumService: ForumService) {}
+  constructor(
+    private forumMenteeService: ForumMenteeService,
+    private postForumService: PostForumService
+  ) {}
 
   ngOnInit(): void {
-    this.getForums(); // Récupère les forums au démarrage du composant
+    this.loadForums();
   }
 
-  // Méthode pour récupérer les forums
-  getForums(): void {
-    this.forumService.getForums().subscribe((data: any[]) => {
+  loadForums(): void {
+    this.forumMenteeService.getForums().subscribe((data: any[]) => {
       this.forums = data;
+      console.log('Forums received:', this.forums);
     });
   }
 
+  onSelectForum(forumId: number): void {
+    this.selectedForumId = forumId;
+    this.postForumService.getPostsByForumId(forumId).subscribe(
+      (posts) => {
+        this.selectedForumPosts = posts;
+      },
+      (error) => {
+        console.error('Error loading posts:', error);
+      }
+    );
+  }
+
+  loadCommentsForPost(post: any): void {
+    this.postForumService.getCommentsByPostId(post.id).subscribe((comments) => {
+      post.comments = comments;
+    });
+  }
+
+  
 }

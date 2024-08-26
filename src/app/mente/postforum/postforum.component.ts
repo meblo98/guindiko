@@ -1,53 +1,53 @@
-import { PostForumService } from './../../services/post-forum.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { PostForumService } from '../../services/postforum.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-postforum',
   standalone: true,
-  imports: [CommonModule,FormsModule, RouterModule,ReactiveFormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './postforum.component.html',
-  styleUrl: './postforum.component.css'
+  styleUrls: ['./postforum.component.css']
 })
-export class PostforumComponent  {
+export class PostforumComponent implements OnInit {
 
-  postForm: FormGroup;
+  posts: any[] = [];
+  selectedForumId: number | null = null;
+  commentsVisible: { [key: number]: boolean } = {};
+  forumId: number | null = null;
 
-  constructor(private fb: FormBuilder, private postForumService: PostForumService) {
-    this.postForm = this.fb.group({
-      image: [null, Validators.required],
-      contenu: ['', Validators.required]
+  constructor(private postforumService: PostForumService,
+    private route: ActivatedRoute,
+    private userService: UserService, // Inject the UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.forumId = +params.get('id')!;
+      if (this.forumId) {
+        this.loadPosts(this.forumId);
+      }
     });
+
   }
 
-  onSubmit(): void {
-    if (this.postForm.valid) {
-      const formData = new FormData();
-      formData.append('image', this.postForm.get('image')?.value);
-      formData.append('contenu', this.postForm.get('contenu')?.value);
+  loadPosts(forumId: number): void {
+    this.postforumService.getPostsByForumId(forumId).subscribe(
+      (data: any) => {
+        this.posts = data;
+        console.log(this.posts);
 
-      this.postForumService.createPostForum(formData).subscribe(
-        (response) => {
-          console.log('Post créé avec succès', response);
-          // Réinitialiser le formulaire après la soumission
-          this.postForm.reset();
-        },
-        (error) => {
-          console.error('Erreur lors de la création du post', error);
-        }
-      );
-    }
+      },
+      (error) => {
+        console.error('Error loading posts:', error);
+      }
+    );
   }
 
-  onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.postForm.patchValue({
-        image: file
-      });
-    }
+  toggleComments(postId: number): void {
+    this.commentsVisible[postId] = !this.commentsVisible[postId];
   }
-
 }

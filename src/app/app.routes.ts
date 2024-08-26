@@ -33,7 +33,6 @@ import { PortailComponent } from './mente/accueil/accueil.component';
 
             // Importation des composants BASSINE
             import { ForumComponent } from './forum/forum/forum.component'; //MOI FORUM
-            import { PostForumComponent } from './post/post-forum/post-forum.component'; // Composant pour les posts de forums
             import { PostCommentaireComponent } from './commentaire/post-commentaire/post-commentaire.component';
 
 
@@ -99,6 +98,8 @@ export const routes: Routes = [
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
   { path: 'ajout-rdv', component: FormRDVComponent},
   { path: 'postforum', component:PostforumComponent},
+  { path: 'postforum/:id', component: PostforumComponent },// Route pour afficher les détails d'un post
+
   { path: 'liste-mentor', component: ListeMentorsComponent},
   { path: 'forum-mentee', component: ForumMenteeComponent},
   { path: 'accueilMenteeAuth', component: AccueilMenteeComponent},
@@ -117,8 +118,8 @@ export const routes: Routes = [
           // Définition des routes BASSINE
           { path: 'forum', component: ForumComponent }, // MOI Route pour FORUM
 
-          { path: 'post-forum', component: PostForumComponent },
-          { path: 'post-forum/:id', component: PostForumComponent },// Route pour afficher les détails d'un post
+          // { path: 'post-forum', component: PostForumComponent },
+          // { path: 'post-forum/:id', component: PostForumComponent },// Route pour afficher les détails d'un post
 
           { path: 'post-commentaire', component: PostCommentaireComponent },
           { path: 'post-commentaire/:id', component: PostCommentaireComponent },

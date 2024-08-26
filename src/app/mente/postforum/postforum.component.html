@@ -44,82 +44,28 @@
   <p>Explorez les dernières discussions et sujets d'actualité liés à l'informatique.</p>
   <button class="btn " data-bs-toggle="collapse" data-bs-target="#publishPostForm">Publier un post</button>
 </div>
-
-<!-- Publish Post Form -->
-<div id="publishPostForm" class="collapse">
-  <div class="container">
-    <h2>Créer un nouveau post</h2>
-    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="postImage" class="form-label">Image</label>
-        <input type="file" class="form-control" id="postImage" formControlName="image" (change)="onFileSelected($event)">
+<!-- Liste des publications -->
+<div *ngIf="posts.length > 0">
+  <div *ngFor="let post of posts" class="discussion-card">
+    <div class="discussion-title">{{ post.nomForum }}</div>
+    <img [src]="post.image" alt="Post Image" class="discussion-image">
+    <div class="discussion-body">{{ post.contenu }}</div>
+    <div class="discussion-meta">Posté par {{ post.user_id }} | {{ post.createdAt | date }}</div>
+    <button class="view-comments-btn" (click)="toggleComments(post.id)" [attr.data-bs-target]="'#comments' + post.id">
+      Voir les commentaires
+    </button>
+    <div *ngIf="commentsVisible[post.id]" class="comments-container">
+      <!-- Remplir avec les commentaires une fois récupérés -->
+      <div *ngFor="let comment of post.comments" class="comment-card">
+        <div class="comment-author">{{ comment.author }}</div>
+        <div class="comment-text">{{ comment.text }}</div>
       </div>
-      <div class="mb-3">
-        <label for="postContent" class="form-label">Contenu</label>
-        <textarea class="form-control" id="postContent" rows="5" formControlName="contenu" placeholder="Entrez le contenu du post"></textarea>
+      <!-- Formulaire pour ajouter un commentaire -->
+      <div class="comment-form">
+        <textarea rows="3" placeholder="Écrivez un commentaire..."></textarea>
+        <button type="submit">Ajouter un commentaire</button>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Publier</button>
-    </form>
+    </div>
   </div>
-
 </div>
-
-  <!-- Discussions Container -->
-  <div class="container discussions-container">
-    <!-- Discussion 1 -->
-    <div class="discussion-card">
-      <img src="/assets/AI.jpg" alt="Intelligence Artificielle" class="discussion-image">
-      <div class="discussion-title">Quel est l'avenir de l'intelligence artificielle ?</div>
-      <div class="discussion-meta">Posté par John Doe | 15 Août 2024</div>
-      <div class="discussion-body">L'intelligence artificielle évolue rapidement, mais qu'en est-il de son impact sur le futur du travail ?</div>
-      <button class="view-comments-btn" data-bs-toggle="collapse" data-bs-target="#comments1">Voir les commentaires (3)</button>
-      <div id="comments1" class="comments-container collapse">
-        <div class="comment-card">
-          <div class="comment-author">Alice</div>
-          <div class="comment-text">Je pense que l'IA va changer beaucoup de choses, mais il y a encore beaucoup de défis à relever.</div>
-        </div>
-        <div class="comment-card">
-          <div class="comment-author">Bob</div>
-          <div class="comment-text">Je suis d'accord, surtout en ce qui concerne l'éthique et les biais dans l'IA.</div>
-        </div>
-        <div class="comment-card">
-          <div class="comment-author">Charlie</div>
-          <div class="comment-text">Il ne faut pas oublier non plus l'impact sur l'emploi.</div>
-        </div>
-      </div>
-      <!-- Comment Form -->
-      <div class="comment-form">
-        <textarea rows="3" placeholder="Écrivez un commentaire..."></textarea>
-        <button type="submit">Ajouter un commentaire</button>
-      </div>
-    </div>
-
-    <!-- Discussion 2 -->
-    <div class="discussion-card">
-      <img src="/assets/Angular-vs-React-vs-Vue.js-A-Comparative-Study.jpg" alt="Développement Web" class="discussion-image">
-      <div class="discussion-title">Les nouvelles tendances en développement web pour 2025</div>
-      <div class="discussion-meta">Posté par Jane Smith | 10 Août 2024</div>
-      <div class="discussion-body">Quelles sont les technologies et frameworks que vous voyez dominer en 2025 ?</div>
-      <button class="view-comments-btn" data-bs-toggle="collapse" data-bs-target="#comments2">Voir les commentaires (5)</button>
-      <div id="comments2" class="comments-container collapse">
-        <div class="comment-card">
-          <div class="comment-author">Dave</div>
-          <div class="comment-text">Je pense que Svelte va vraiment prendre de l'ampleur.</div>
-        </div>
-        <div class="comment-card">
-          <div class="comment-author">Eve</div>
-          <div class="comment-text">J'ai entendu parler de Qwik, c'est une technologie à surveiller.</div>
-        </div>
-        <!-- Plus de commentaires ici -->
-      </div>
-      <!-- Comment Form -->
-      <div class="comment-form">
-        <textarea rows="3" placeholder="Écrivez un commentaire..."></textarea>
-        <button type="submit">Ajouter un commentaire</button>
-      </div>
-    </div>
-
-    <!-- Répétez les sections de discussion pour d'autres discussions -->
-  </div>
-
 
