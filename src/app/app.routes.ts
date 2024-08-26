@@ -154,14 +154,17 @@ export const routes: Routes = [
 //   { path: 'services', component: ServicesComponent }
 // ];
 // export const routes: Routes = [
- 
-// ];
-
-
-
-
-
-
+//   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+//   { path: 'login', component: LoginComponent },
+//   { path: 'inscription-mente', component: InscriptionMenteComponent},
+//   { path: 'inscription-mentor', component: InscriptionMentorComponent},
+//   { path: 'dashboard', component: TableauBordComponent, canActivate: [AuthGuard]},
+//   { path: 'roles', component: RoleComponent, canActivate: [AuthGuard]},
+//   { path: 'permissions', component: PermissionsComponent, canActivate: [AuthGuard]},
+//   { path: 'user', component: GestionUserComponent, canActivate: [AuthGuard]},
+//   { path: 'detail-user/:id', component: DetailUserComponent, canActivate: [AuthGuard]},
+//   { path: 'assign-permission', component: AssignPermissionComponent, canActivate: [AuthGuard]},
+//   { path: 'user-form/:id', component: UserFormComponent, canActivate: [AuthGuard]},
 
 
 
