@@ -1,0 +1,17 @@
+<h1>Liste des Forums</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nom du Forum</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forum of forums">
+      <td>{{ forum.nomForum }}</td>
+      <td>
+        <a [routerLink]="['/post-forum', forum.id]">Voir les posts</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
