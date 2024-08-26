@@ -1,1 +1,166 @@
-<p>inscription-mentor works!</p>
+<div class="container my-5">
+  <div class="form-section">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+      <div class="form-group mb-3">
+        <label for="role" class="form-label">Rôle</label>
+        <select
+          class="form-select"
+          id="role"
+          name="role"
+          ngModel
+          (change)="onRoleChange($event)"
+          required
+        >
+          <option value="mentor">Mentor</option>
+          <option value="menti">Menti</option>
+        </select>
+      </div>
+
+      <!-- Champs Nom et Prénom sur une ligne -->
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="nom" class="form-label">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nom"
+            name="nom"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="prenom" class="form-label">Prénom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="prenom"
+            name="prenom"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Champs Numéro de Téléphone et Email sur une ligne -->
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="numeroTelephone" class="form-label"
+            >Numéro de Téléphone</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="numeroTelephone"
+            name="numeroTelephone"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Champs Mot de Passe et Confirmation sur une ligne -->
+      <div class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="password_confirmation" class="form-label"
+            >Confirmer le mot de passe</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="password_confirmation"
+            name="password_confirmation"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Champs spécifiques au rôle Mentor -->
+      <div *ngIf="selectedRole === 'mentor'" class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="domaineExpertise" class="form-label"
+            >Domaine d'Expertise</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="domaineExpertise"
+            name="domaineExpertise"
+            ngModel
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="experience" class="form-label">Expérience</label>
+          <input
+            type="text"
+            class="form-control"
+            id="experience"
+            name="experience"
+            ngModel
+          />
+        </div>
+        <!-- <div class="form-group col-md-6 mb-3">
+          <label for="disponibilite" class="form-label">Disponibilité</label>
+          <input
+            type="text"
+            class="form-control"
+            id="disponibilite"
+            name="disponibilite"
+            ngModel
+          />
+        </div> -->
+      </div>
+
+      <!-- Champs spécifiques au rôle Menti -->
+      <div *ngIf="selectedRole === 'menti'" class="row">
+        <div class="form-group col-md-6 mb-3">
+          <label for="motivation" class="form-label">Motivation</label>
+          <input
+            type="text"
+            class="form-control"
+            id="motivation"
+            name="motivation"
+            ngModel
+          />
+        </div>
+        <div class="form-group col-md-6 mb-3">
+          <label for="NiveauEtude" class="form-label">Niveau d'Étude</label>
+          <input
+            type="text"
+            class="form-control"
+            id="NiveauEtude"
+            name="NiveauEtude"
+            ngModel
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+  </div>
+  <div class="image-section">
+  </div>
+</div>

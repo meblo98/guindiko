@@ -28,6 +28,9 @@ import { PortailComponent } from './mente/accueil/accueil.component';
 // import { DetailUserComponent } from './admin/detail-user/detail-user.component';
 // import { AssignPermissionComponent } from './admin/assign-permission/assign-permission.component';
 import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
+import { DashboardMentorComponent } from './mentor/dashboard-mentor/dashboard-mentor.component';
+import { ListeRDVMentorComponent } from './mentor/liste-rdv/liste-rdv.component';
+import { ListeMenteAccepteComponent } from './mentor/liste-mente-accepte/liste-mente-accepte.component';
 
 export const routes: Routes = [
 
@@ -45,10 +48,12 @@ export const routes: Routes = [
   { path: 'mes-demandes', component: ListeMesDemandesComponent},
   { path: 'mes-rdv', component: ListeRDVComponent},
   { path: 'liste-mentor', component: ListeMentorsComponent},
-  { path: 'mentor-rdv', component: ListeRDVComponent},
+  { path: 'mentor-rdv', component: ListeRDVMentorComponent},
   { path: 'mentor-demande', component: ListeDemandesComponent},
   { path: 'mentor-demande/:id', component: DetailDemandeComponent},
   { path: 'ajout-rdv', component: FormRDVComponent},
+  { path: 'dashboard-mentor', component: DashboardMentorComponent},
+  { path: 'liste-mente', component: ListeMenteAccepteComponent},
 
 
   { path: 'accueil', component: AccueilComponent }, // MOI Route pour l'accueil

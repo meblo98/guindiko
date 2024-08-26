@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { apiUrl } from './apiURL';
 import { AuthService } from './auth.service';
 
@@ -33,7 +33,85 @@ export class MentorService {
         return throwError(error);
       })
     );
+  }
 
+ // Méthode pour récupérer les demandes de mentorat pour le mentor connecté
+ getMentorshipRequests(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.get(`${apiUrl}/demandes`, { headers });
+}
+
+// Méthode pour récupérer les détails d'une demande de mentorat spécifique
+getMentorshipRequestById(id: number): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.get(`${apiUrl}/demandes/${id}`, { headers });
+}
+
+// mentor.service.ts
+updateMentorshipRequest(id: number, data: any): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.put(`${apiUrl}/demandes/${id}`, data, { headers });
+}
+
+getAcceptedRequestsForMentor(): Observable<any> {
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.get(`${apiUrl}/demandes-acceptee`, { headers });
+}
+
+
+   // Méthode pour l'inscription des mentors
+   registerMentor(
+    nom: string,
+    prenom: string,
+    numeroTelephone: string,
+    email: string,
+    password: string,
+    domaineExpertise: string,
+    experience: string,
+    disponibilite: string
+  ): Observable<any> {
+    const body = {
+      nom,
+      prenom,
+      numeroTelephone,
+      email,
+      password,
+      domaineExpertise,
+      experience,
+      disponibilite
+    };
+
+    return this.http.post(`${apiUrl}/mentors`, body).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: any): Observable<never> {
+    let errorMessage = 'Une erreur est survenue';
+    if (error.error instanceof ErrorEvent) {
+      // Erreur côté client
+      errorMessage = `Erreur : ${error.error.message}`;
+    } else {
+      // Erreur côté serveur
+      errorMessage = `Code d'erreur : ${error.status}\nMessage : ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 
 }
