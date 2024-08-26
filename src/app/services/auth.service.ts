@@ -161,6 +161,12 @@ export class AuthService {
     return !!this.getToken();
   }
 
+  getRole(): string | null {
+    // Cette méthode doit retourner le rôle de l'utilisateur
+    // Assurez-vous que le rôle est bien stocké dans le localStorage ou une autre source
+    return localStorage.getItem('role');
+  }
+
   hasRole(role: string): boolean {
     const roles = JSON.parse(localStorage.getItem('roles') || '[]');
     return roles.includes(role);
