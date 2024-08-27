@@ -665,6 +665,7 @@ footer {
 }
 
 .footer-bottom p {
+    color: #fff;
     margin-bottom: 0;
     flex: 1;
     text-align: left;
