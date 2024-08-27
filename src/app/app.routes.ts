@@ -128,6 +128,7 @@ export const routes: Routes = [
   { path: 'dashboard-mentor', component: DashboardMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
 
 
+  { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard] },
   { path: 'liste-mente', component: ListeMenteAccepteComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'mentor' }},
   { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'accueil', component: AccueilComponent },
