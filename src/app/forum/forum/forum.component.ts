@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'; // Importer RouterModule
 import { CommonModule } from '@angular/common'; // Importer CommonModule
-import { ForumService } from '../../services/forum.service'; // Chemin correct vers le service
+import { ForumService } from '../../services/forum.service';
+import { SidebarNavigateComponent } from "../../admin/layouts/sidebar-navigate/sidebar-navigate.component";
+import { SidebarComponent } from "../../admin/layouts/sidebar/sidebar.component"; // Chemin correct vers le service
 
 @Component({
   selector: 'app-forum',
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule], // Ajouter CommonModule et RouterModule ici
+  imports: [CommonModule, RouterModule, HttpClientModule, SidebarNavigateComponent, SidebarComponent], // Ajouter CommonModule et RouterModule ici
   templateUrl: './forum.component.html',
   styleUrls: ['./forum.component.css']
 })
