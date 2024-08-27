@@ -11,7 +11,7 @@ export class RoleGuard {
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const expectedRole = route.data['expectedRole'];
-    const userRole = this.authService.getRole(); // Assurez-vous que cette méthode retourne le rôle de l'utilisateur
+    const userRole = this.authService.getRole(); 
 
     if (userRole === expectedRole) {
       return true;

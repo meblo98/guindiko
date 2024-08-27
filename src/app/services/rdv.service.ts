@@ -63,13 +63,22 @@ export class RdvService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(`${apiUrl}/rdv`, rendezVousData, { headers });
+    return this.http.post(`${apiUrl}/rdv`, rendezVousData, { headers }).pipe(
+      catchError(this.handleError)
+    );
   }
 
   updateRendezVous(id: number, rdvData: any): Observable<any> {
-    return this.http.put(`${apiUrl}/${id}`, rdvData);
-  }
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
 
+    return this.http.put(`${apiUrl}/rdv/${id}`, rdvData, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(error: any) {
     console.error('Une erreur est survenue :', error);

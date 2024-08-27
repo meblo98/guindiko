@@ -4,18 +4,6 @@ body {
   background-color: #f8f9fa;
 }
 
-.navbar {
-  background-color: #36494E;
-}
-
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #D2B48C;
-}
 
 .forum-header {
   background-color: #36494E;
@@ -47,11 +35,27 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.discussion-image {
+ .discussion-image {
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
+.add-post-form {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/*
+.discussion-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: box-shadow 0.3s;
+  
+} */
 
 .discussion-title {
   font-size: 20px;

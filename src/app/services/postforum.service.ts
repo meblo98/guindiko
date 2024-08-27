@@ -14,6 +14,10 @@ export class PostForumService {
   getPostsByForumId(forumId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}?forumId=${forumId}`);
   }
+    // Ajouter un nouveau post
+    addPost(postData: any): Observable<any> {
+      return this.http.post<any>(this.apiUrl, postData);
+    }
 
- 
+
 }

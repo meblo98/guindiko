@@ -14,4 +14,10 @@ export class CommentaireForumService {
   getCommentairesByPostId(postForumId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}?post_forum_id=${postForumId}`);
   }
+
+  // Ajouter un nouveau commentaire
+  addCommentaire(commentaire: { contenu: string, post_forum_id: number, user_id: number }): Observable<any> {
+    console.log('envoie du commentaire au server:', commentaire);
+    return this.http.post<any>(this.apiUrl, commentaire);
+  }
 }

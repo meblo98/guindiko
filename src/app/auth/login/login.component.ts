@@ -26,23 +26,31 @@ export class LoginComponent {
 
     this.authService.login(this.loginData.email, this.loginData.password).subscribe({
       next: (response) => {
-        // Les informations utilisateur sont déjà stockées dans AuthService, inutile de les dupliquer ici.
-        // Redirection basée sur le rôle
+        console.log('API Response:', response);
+
+        // Continuez avec la redirection basée sur le rôle
         if (this.authService.hasRole('admin')) {
+          console.log('Redirection vers /dashboard');
           this.router.navigate(['/dashboard']);
         } else if (this.authService.hasRole('mentor')) {
+          console.log('Redirection vers /dashboard-mentor');
           this.router.navigate(['/dashboard-mentor']);
         } else if (this.authService.hasRole('menti')) {
           this.router.navigate(['/accueilMenteeAuth']);
         } else {
           this.errorMessage = "Rôle utilisateur non reconnu.";
         }
-        console.log(response);
       },
       error: (err) => {
-        this.errorMessage = "Erreur d'authentification. Veuillez vérifier vos identifiants.";
+        // Gestion des erreurs d'authentification
+        if (err.status === 403) {
+          this.errorMessage = err.error.error;  // Utiliser le message d'erreur provenant de la réponse backend
+        } else {
+          this.errorMessage = "Erreur d'authentification. Veuillez vérifier vos identifiants.";
+        }
         console.error('Erreur lors de la tentative de connexion:', err);
       }
     });
   }
+
 }
