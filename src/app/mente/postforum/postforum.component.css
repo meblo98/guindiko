@@ -23,13 +23,16 @@ body {
 }
 
 .discussion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
   background-color: white;
   transition: box-shadow 0.3s;
 }
+
 
 .discussion-card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -46,21 +49,18 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/*
-.discussion-card {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #ffffff;
-  transition: box-shadow 0.3s;
-  
-} */
+
 
 .discussion-title {
   font-size: 20px;
   font-weight: bold;
   color: #36494E;
+}
+.post-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .discussion-meta {

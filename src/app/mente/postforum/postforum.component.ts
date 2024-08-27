@@ -1,4 +1,3 @@
-import { UserService } from './../../services/user.service';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -20,10 +19,7 @@ export class PostforumComponent implements OnInit {
     comments: { [key: number]: any[] } = {}; // Stocker les commentaires pour chaque post
     newComment: { [key: number]: string } = {}; // Pour stocker le nouveau commentaire par post
     commentsVisible: { [key: number]: boolean } = {};
-    newPost = {
-      contenu: '',
-      image: ''
-    };
+    newPost = { contenu: '', image: '' };
 
     constructor(
       private postforumService: PostForumService,
