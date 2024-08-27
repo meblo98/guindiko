@@ -15,8 +15,6 @@ import { FormsModule, NgModel } from '@angular/forms';
 export class ListeRDVMentorComponent implements OnInit{
 
   rendezVous: any[] = [];
-  isEditMode: boolean = false;
-  selectedRdv: any = null;
 
   constructor(private rdvService: RdvService) { }
 
@@ -32,27 +30,6 @@ export class ListeRDVMentorComponent implements OnInit{
     });
   }
 
-  enterEditMode(rdv: any): void {
-    this.isEditMode = true;
-    this.selectedRdv = { ...rdv };
-  }
 
-   // Méthode pour sauvegarder les changements
-   saveChanges() {
-    // Appliquer les modifications à l'objet rdv original
-    const index = this.rendezVous.findIndex((item: any) => item.id === this.selectedRdv.id);
-    if (index !== -1) {
-      this.rendezVous[index] = { ...this.selectedRdv };
-    }
-    // Sortir du mode édition
-    this.isEditMode = false;
-    this.selectedRdv = null;
-  }
-
-  // Méthode pour annuler l'édition
-  cancelEdit() {
-    this.isEditMode = false;
-    this.selectedRdv = null;
-  }
 
 }
