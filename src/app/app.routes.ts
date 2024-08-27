@@ -39,6 +39,7 @@ import { ServicesComponent } from './portail/services/services.component'; //MOI
             import { RoleGuard } from './role.guard';
 import { PortailComponent } from './mente/accueil/accueil.component';
 import { ListeMentorsComponent } from './mente/liste-mentors/liste-mentors.component';
+import { ContactComponent } from './portail/contact/contact.component';
                        
 
 
@@ -75,7 +76,9 @@ export const routes: Routes = [
   { path: 'accueil-mentee', component: PortailComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'accueil', component: AccueilComponent },
   { path: 'apropos', component: AproposComponent },
-  { path: 'services', component: ServicesComponent }
+  { path: 'services', component: ServicesComponent },
+  { path: 'contact', component: ContactComponent }
+
 ];
 
 

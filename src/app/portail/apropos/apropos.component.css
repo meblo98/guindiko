@@ -518,7 +518,7 @@ header {
     margin-left: 10px;
 }
 
-/* About Section */
+/* About Section
 .about {
     display: flex;
     align-items: center;
@@ -551,7 +551,183 @@ header {
 .about-image {
     flex: 1;
     text-align: right;
+} */
+
+
+
+
+
+
+
+
+
+/* Section Introduction */
+.introduction {
+    display: inline-bl
+    ock;
+    background-color: #ffffff;
+    color: #444;
+    padding: 50px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 10%;
+    top: -13%;
 }
+
+/* Arcs dans l'introduction */
+.introduction::before {
+    
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(54, 73, 78, 0.1), rgba(210, 180, 140, 0.05));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.introduction::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, rgba(54, 73, 78, 0.1), rgba(210, 180, 140, 0.1));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.introduction h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #36494E; /* Couleur bleue foncée */
+    z-index: 1;
+    position: relative;
+}
+
+.introduction h2 {
+    font-size: 1.6em;
+    margin-bottom: 1em;
+    color: #D2B48C; /* Couleur beige clair */
+    z-index: 1;
+    position: relative;
+}
+
+.introduction p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+    z-index: 1;
+    position: relative;
+}
+
+/* Section Mission & Vision */
+.mission-vision {
+    left: 290px;
+    background-color: #ffffff;
+    color: #444;
+    padding: 80px;
+    margin: -15% auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E0E0E0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Arcs dans la mission-vision */
+.mission-vision::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(54, 73, 78, 0.1), rgba(210, 180, 140, 0.05));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.mission-vision::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, rgba(54, 73, 78, 0.1), rgba(210, 180, 140, 0.1));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.mission-vision h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #36494E; /* Couleur bleue foncée */
+    z-index: 1;
+    position: relative;
+}
+
+.mission-vision ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mission-vision li {
+    padding: 15px 0;
+    border-bottom: 1px solid #E0E0E0;
+    position: relative;
+}
+
+.mission-vision li:last-child {
+    border-bottom: none;
+}
+
+.mission-vision strong {
+    color: #36494E; /* Couleur bleue foncée */
+}
+
+/* Animation des titres */
+h1, h2 {
+    transition: color 0.3s ease;
+}
+
+h1:hover, h2:hover {
+    color: #D2B48C; /* Couleur beige clair */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer Styles */
 footer {
@@ -646,75 +822,98 @@ footer {
 
 
 
+
+
+
+
 /* Section Équipe */
 .team {
-    padding: 50px 20px;
-    background-color: #f9f9f9; /* Couleur de fond légère pour contraster avec les autres sections */
+    padding: 8% 20px;
+    /* background-color: #FAF7F7; Couleur de fond douce avec une légère teinte rosée */
     text-align: center;
+    position: relative;
+    padding: 15% 20px;
+
 }
 
 .team h2 {
-    font-size: 32px;
-    color: #36494E;
-    margin-bottom: 40px;
+    font-size: 40px;
+    color: #2C3E50;
+    margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif; /* Typographie moderne */
 }
 
 .team-members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Espacement entre les membres */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    align-items: start;
+    position: relative;
 }
 
 .member {
-    background-color: white;
-    border-radius: 10px; /* Coins arrondis pour les cartes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner de la profondeur */
+    background: linear-gradient(145deg, #FFFFFF, #E6E6E6); /* Dégradé doux pour l'effet de relief */
+    border-radius: 15px;
     padding: 20px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s; /* Animation pour l'effet de survol */
+    text-align: left;
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    position: relative;
+    z-index: 1;
+}
+
+.member::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 50px;
+    height: 50px;
+    background-color: #D2B48C;
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%; /* Images circulaires */
-    border: 4px solid #36494E; /* Bordure colorée autour des images */
-    margin-bottom: 15px;
-    transition: transform 0.3s; /* Animation pour l'effet de survol */
+    width: 120px;
+    height: 120px;
+    border-radius: 15px; /* Coins arrondis mais pas circulaires */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .member h3 {
-    margin: 10px 0 5px;
     font-size: 24px;
-    color: #36494E;
+    color: #2C3E50;
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .member p {
-    margin: 5px 0;
     font-size: 16px;
-    color: #555;
+    color: #7F8C8D;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
 }
 
 .member:hover {
-    transform: translateY(-10px); /* Légère élévation au survol */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+    transform: translateY(-10px) scale(1.05); /* Déplacement subtil au survol */
+    box-shadow: 18px 18px 36px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
 }
 
 .member img:hover {
-    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+    transform: rotate(-3deg) scale(1.1); /* Légère rotation et zoom au survol */
 }
 
 .founders-text {
     max-width: 800px;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #333;
+    margin: 70px auto 0;
+    font-size: 18px;
+    color: #2C3E50;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.8;
 }
-
-
-
-
-
