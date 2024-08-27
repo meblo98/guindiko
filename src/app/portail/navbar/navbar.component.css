@@ -3,7 +3,7 @@
   display: flex;
   align-items: center; /* Aligne les icônes verticalement au centre */
   border: 3px solid #fff; /* Bordure rouge */
-  width: 100px;
+  width: 70px;
   text-align: center;
   margin-left: 20%;
   justify-content: center;
@@ -19,7 +19,7 @@
 /* Header */
 header {
   background-color: #36494E;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
