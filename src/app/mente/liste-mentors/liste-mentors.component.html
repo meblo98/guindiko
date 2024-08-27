@@ -31,7 +31,7 @@
                   </div>
               </div>
               <div class="card-body bg-primary text-white">
-                  <h5 class="card-title">{{ mentor.user.name }}</h5>
+                  <h5 class="card-title">{{ mentor.user.prenom }} {{ mentor.user.nom }}</h5>
                   <p class="card-text">{{ mentor.domaineExpertise}}</p>
                   <p class="card-text">{{ mentor.experience}}</p>
                   <button class="btn btn-warning" (click)="requestMentorship(mentor.id)">Demander un Mentorat</button>
