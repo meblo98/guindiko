@@ -11,12 +11,12 @@ export class RoleGuard {
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const expectedRole = route.data['expectedRole'];
-    const userRole = this.authService.getRole(); 
+    const userRole = this.authService.getRole();
 
     if (userRole === expectedRole) {
       return true;
     } else {
-      this.router.navigate(['/unauthorized']); // Redirigez vers une page non autorisée ou autre
+      this.router.navigate(['/login']); // Redirigez vers une page non autorisée ou autre
       return false;
     }
   }
