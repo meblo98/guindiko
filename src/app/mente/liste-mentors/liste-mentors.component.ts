@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
 import { NavbarMentorComponent } from "../../mentor/navbar-mentor/navbar-mentor.component";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-liste-mentors',
@@ -41,17 +42,37 @@ export class ListeMentorsComponent implements OnInit{
       if (mentee && mentee.id) {
         this.mentorService.requestMentorship(mentorId, mentee.id).subscribe({
           next: (response) => {
-            console.log('Demande de mentorat envoyée avec succès:', response);
-          },
+            Swal.fire({
+              title: 'Demande de mentorat envoyée !',
+              text: 'Votre demande de mentorat a été envoyée avec succès.',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            });
+                    },
           error: (err) => {
-            console.error('Erreur lors de l\'envoi de la demande de mentorat:', err);
+            Swal.fire({
+              title: 'Erreur lors de l\'envoi de la demande de mentorat',
+              text: 'Une erreur est survenue lors de l\'envoi de votre demande de mentorat. Veuillez réessayer.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
           }
         });
       } else {
-        console.error('ID du mentee non trouvé');
+        Swal.fire({
+          title: 'ID du mentee non trouvé',
+          text: 'Impossible de trouver l\'ID du mentee pour envoyer la demande de mentorat.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       }
     } else {
-      console.error('Aucun mentee trouvé dans le localStorage');
+      Swal.fire({
+        title: 'Aucun mentee trouvé',
+        text: 'Aucun mentee trouvé dans le localStorage pour envoyer la demande de mentorat.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     }
   }
 }
