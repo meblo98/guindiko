@@ -37,7 +37,6 @@ export class LoginComponent {
           this.router.navigate(['/dashboard-mentor']);
         } else if (this.authService.hasRole('menti')) {
           this.router.navigate(['/accueilMenteeAuth']);
-          console.log('Redirection vers /accueil-mentee');
         } else {
           this.errorMessage = "Rôle utilisateur non reconnu.";
         }

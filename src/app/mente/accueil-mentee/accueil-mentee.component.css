@@ -2,18 +2,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.navbar {
-  background-color: #36494E;
-}
 
-.navbar-brand,
-.navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #D2B48C;
-}
 
 
 .hero-section {
@@ -28,7 +17,9 @@ body {
   height: 600px;
   font-size: 45px;
 }
-
+h1 {
+   color: #ffff;
+}
 .hero-section::before {
   content: "";
   position: absolute;
@@ -72,6 +63,19 @@ body {
 .benefits-section h4 {
   margin-top: 20px;
   font-weight: bold;
+
+}
+.titre-benefit{
+  font-size: 30px;
+}
+
+.col-md-3 img{
+width: 50%;
+height: 80%;
+
+}
+.col-md-3{
+  font-size: 16px;
 }
 
 .alumni-section {
