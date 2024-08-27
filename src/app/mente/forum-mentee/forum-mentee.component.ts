@@ -44,11 +44,7 @@ export class ForumMenteeComponent implements OnInit {
     );
   }
 
-  loadCommentsForPost(post: any): void {
-    this.postForumService.getCommentsByPostId(post.id).subscribe((comments) => {
-      post.comments = comments;
-    });
-  }
 
-  
+
+
 }

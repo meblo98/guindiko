@@ -15,8 +15,5 @@ export class PostForumService {
     return this.http.get<any[]>(`${this.apiUrl}?forumId=${forumId}`);
   }
 
-  // Récupérer les commentaires par post ID
-  getCommentsByPostId(postId: number): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8000/api/postes/${postId}/comments`);
-  }
+ 
 }

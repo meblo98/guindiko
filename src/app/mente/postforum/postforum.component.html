@@ -55,10 +55,10 @@
       Voir les commentaires
     </button>
     <div *ngIf="commentsVisible[post.id]" class="comments-container">
-      <!-- Remplir avec les commentaires une fois récupérés -->
-      <div *ngFor="let comment of post.comments" class="comment-card">
-        <div class="comment-author">{{ comment.author }}</div>
-        <div class="comment-text">{{ comment.text }}</div>
+      <div *ngFor="let comment of comments[post.id]" class="comment-card">
+        <div class="comment-author">Commenté (e) par {{ comment.user_id }}</div>
+        <div class="comment-text">{{ comment.contenu }}</div>
+        <div class="comment-meta">{{ comment.createdAt | date }}</div>
       </div>
       <!-- Formulaire pour ajouter un commentaire -->
       <div class="comment-form">

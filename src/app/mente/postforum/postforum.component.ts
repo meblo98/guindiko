@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PostForumService } from '../../services/postforum.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommentaireForumService } from '../../services/commentaire-forum.service';
 
 @Component({
   selector: 'app-postforum',
@@ -18,10 +19,12 @@ export class PostforumComponent implements OnInit {
   selectedForumId: number | null = null;
   commentsVisible: { [key: number]: boolean } = {};
   forumId: number | null = null;
+  comments: { [key: number]: any[] } = {}; // Stocker les commentaires pour chaque post
 
   constructor(private postforumService: PostForumService,
     private route: ActivatedRoute,
     private userService: UserService, // Inject the UserService
+    private commentaireForumService: CommentaireForumService,
   ) {}
 
   ngOnInit(): void {
@@ -36,8 +39,8 @@ export class PostforumComponent implements OnInit {
 
   loadPosts(forumId: number): void {
     this.postforumService.getPostsByForumId(forumId).subscribe(
-      (data: any) => {
-        this.posts = data;
+      (response: any) => {
+        this.posts = response;
         console.log(this.posts);
 
       },
@@ -48,6 +51,22 @@ export class PostforumComponent implements OnInit {
   }
 
   toggleComments(postId: number): void {
+    if (!this.comments[postId]) {
+      this.loadComments(postId);  // Chargez les commentaires si ce n'est pas encore fait
+    }
     this.commentsVisible[postId] = !this.commentsVisible[postId];
+  }
+
+
+  loadComments(postForumId: number): void {
+    this.commentaireForumService.getCommentairesByPostId(postForumId).subscribe(
+      (response: any[]) => {
+        console.log('Commentaires récupérés :', response);  // Ajoutez ceci
+        this.comments[postForumId] = response;
+      },
+      (error) => {
+        console.error('Error loading comments:', error);
+      }
+    );
   }
 }
