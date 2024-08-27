@@ -3,11 +3,12 @@ import { Rdv, RdvService } from './../../services/rdv.service';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
 
 @Component({
   selector: 'app-liste-rdv',
   standalone: true,
-  imports: [CommonModule,FormsModule, RouterModule,],
+  imports: [CommonModule, FormsModule, RouterModule, NavbarMenteeComponent],
   templateUrl: './liste-rdv.component.html',
   styleUrl: './liste-rdv.component.css'
 })

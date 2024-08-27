@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { PostForumService } from '../../services/postforum.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommentaireForumService } from '../../services/commentaire-forum.service';
+import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
 
 @Component({
   selector: 'app-postforum',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NavbarMenteeComponent],
   templateUrl: './postforum.component.html',
   styleUrls: ['./postforum.component.css']
 })

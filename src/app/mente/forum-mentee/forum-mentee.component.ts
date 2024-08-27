@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ForumMenteeService } from './../../services/forum-mentee.service';
 import { PostForumService } from './../../services/postforum.service';
+import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
 
 @Component({
   selector: 'app-forum-mentee',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarMenteeComponent],
   templateUrl: './forum-mentee.component.html',
   styleUrls: ['./forum-mentee.component.css']
 })

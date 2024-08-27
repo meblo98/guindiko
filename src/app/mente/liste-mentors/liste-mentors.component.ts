@@ -2,11 +2,13 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { MentorService } from '../../services/mentor.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
+import { NavbarMentorComponent } from "../../mentor/navbar-mentor/navbar-mentor.component";
 
 @Component({
   selector: 'app-liste-mentors',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarMenteeComponent, NavbarMentorComponent],
   templateUrl: './liste-mentors.component.html',
   styleUrl: './liste-mentors.component.css'
 })
