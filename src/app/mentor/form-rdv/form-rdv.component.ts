@@ -72,8 +72,7 @@ export class FormRDVComponent {
             showConfirmButton: false,
             timer: 1500
           });
-          this.rendezVousForm.reset();
-          this.router.navigate(['/mentor-rdv']);
+          location.reload();
         },
         (error: any) => {
           console.error('Erreur lors de l\'envoi des données :', error);
@@ -89,6 +88,6 @@ export class FormRDVComponent {
     }
   }
 
-  
+
 
 }

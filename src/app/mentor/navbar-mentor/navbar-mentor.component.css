@@ -1,4 +1,49 @@
-nav
-{
-  background: 36494E;
+.navbar {
+  background-color: #36494E;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #D2B48C;
+}
+.logo {
+  margin-left: 60px;
+  width: 200px;
+
+}
+.nav {
+  padding: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav > * {
+  margin: 0 10px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-link {
+  display: inline-block;
+  margin: 0 10px;
 }

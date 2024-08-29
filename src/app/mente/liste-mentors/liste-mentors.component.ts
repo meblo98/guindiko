@@ -5,11 +5,12 @@ import { AuthService } from '../../services/auth.service';
 import { NavbarMenteeComponent } from "../navbar-mentee/navbar-mentee.component";
 import { NavbarMentorComponent } from "../../mentor/navbar-mentor/navbar-mentor.component";
 import Swal from 'sweetalert2';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-liste-mentors',
   standalone: true,
-  imports: [CommonModule, NavbarMenteeComponent, NavbarMentorComponent],
+  imports: [CommonModule, NavbarMenteeComponent, NavbarMentorComponent, RouterLink],
   templateUrl: './liste-mentors.component.html',
   styleUrl: './liste-mentors.component.css'
 })
@@ -46,7 +47,7 @@ export class ListeMentorsComponent implements OnInit{
               title: 'Demande de mentorat envoyée !',
               text: 'Votre demande de mentorat a été envoyée avec succès.',
               icon: 'success',
-              confirmButtonText: 'OK'
+              timer: 1500
             });
                     },
           error: (err) => {
@@ -54,7 +55,7 @@ export class ListeMentorsComponent implements OnInit{
               title: 'Erreur lors de l\'envoi de la demande de mentorat',
               text: 'Une erreur est survenue lors de l\'envoi de votre demande de mentorat. Veuillez réessayer.',
               icon: 'error',
-              confirmButtonText: 'OK'
+              timer: 1500
             });
           }
         });
@@ -63,7 +64,7 @@ export class ListeMentorsComponent implements OnInit{
           title: 'ID du mentee non trouvé',
           text: 'Impossible de trouver l\'ID du mentee pour envoyer la demande de mentorat.',
           icon: 'error',
-          confirmButtonText: 'OK'
+          timer: 1500
         });
       }
     } else {
@@ -71,7 +72,7 @@ export class ListeMentorsComponent implements OnInit{
         title: 'Aucun mentee trouvé',
         text: 'Aucun mentee trouvé dans le localStorage pour envoyer la demande de mentorat.',
         icon: 'error',
-        confirmButtonText: 'OK'
+        timer: 1500
       });
     }
   }

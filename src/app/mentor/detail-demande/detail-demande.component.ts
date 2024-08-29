@@ -60,7 +60,7 @@ export class DetailDemandeComponent implements OnInit {
       title: action === 'accept' ? 'Demande acceptée' : 'Demande refusée',
       text: `La demande a été ${action === 'accept' ? 'acceptée' : 'refusée'} avec succès.`,
       icon: 'success',
-      confirmButtonText: 'Fermer',
+      timer: 1500
     }).then((result) => {
       if (result.isConfirmed) {
         location.reload();

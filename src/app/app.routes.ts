@@ -31,6 +31,7 @@ import { AccueilMenteeComponent } from './mente/accueil-mentee/accueil-mentee.co
 import { PostforumComponent } from './mente/postforum/postforum.component';
 import { ForumMenteeComponent } from './mente/forum-mentee/forum-mentee.component';
 import { ContactComponent } from './portail/contact/contact.component';
+// import { DetailMentorComponent } from './mente/detail-mentor/detail-mentor.component';
 
 
 export const routes: Routes = [
@@ -50,6 +51,7 @@ export const routes: Routes = [
   { path: 'mes-demandes', component: ListeMesDemandesComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'mes-rdv', component: ListeRDVComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'liste-mentor', component: ListeMentorsComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
+  // { path: 'liste-mentor/:id', component: DetailMentorComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'accueilMenteeAuth', component: AccueilMenteeComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'forum-mentee', component: ForumMenteeComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
   { path: 'postforum', component: PostforumComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'menti' }},
